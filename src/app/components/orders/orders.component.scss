@@ -1,0 +1,77 @@
+@import "src/styles";
+
+span {
+  font-size: inherit;
+}
+
+.primary-text {
+  color: $color-red;
+}
+
+.error {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid $color-red;
+  border-radius: 5px;
+
+  h1 {
+    padding-bottom: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.status-icon {
+  cursor: pointer;
+}
+
+.spinner-border {
+  height: 1rem;
+  border-width: 2px;
+  width: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.status {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 3px;
+
+  &.selected {
+    cursor: initial;
+    border: 1px solid $color-red;
+  }
+
+  &.new {
+    cursor: initial;
+    border: 1px solid $color-grey;
+  }
+}
+
+.container{
+  h1{
+    position: relative;
+    color: $color-red;
+    font-size: 1.5rem;
+    padding-bottom: 12px;
+    &::before {
+      position: absolute;
+      top: calc(#{1.5rem} + #{$padding});
+      left: 0;
+      content: "";
+      height: 2px;
+      width: 40px;
+      background-color: $color-red;
+    }
+  }
+
+  h2{
+    color: $color-red;
+    font-size: 1.4rem;
+  }
+}

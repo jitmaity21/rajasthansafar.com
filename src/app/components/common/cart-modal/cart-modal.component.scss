@@ -1,0 +1,97 @@
+@import "src/styles";
+
+$header-height: 215px;
+$footer-height: 70px;
+
+button {
+  background-color: transparent;
+  border-radius: 8px;
+  border: none;
+  padding: 6px 10px;
+  font: inherit;
+  outline: inherit;
+  font-size: 1rem;
+  color: #000;
+}
+
+.cart-icons {
+  button {
+    padding: 6px 20px;
+  }
+
+  i {
+    font-size: 1.3rem;
+    color: $color-dark-grey;
+  }
+}
+
+button.large {
+  width: 100%;
+  background-color: $color-yellow;
+  color: #fff;
+
+  &:disabled {
+    background-color: rgba($color-grey, 0.5);
+  }
+}
+
+.modal-header {
+  position: relative;
+  background-color: #0001;
+  border: 0;
+  overflow: hidden;
+  height: $header-height;
+
+  .close {
+    opacity: 1;
+
+    span {
+      font-size: 2.5rem;
+      font-weight: 100;
+      color: #000;
+    }
+
+    &:hover {
+      transform: scale(1.1, 1.1);
+    }
+  }
+
+  img {
+    height: 128px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #0008;
+  }
+}
+
+.modal-footer {
+  height: $footer-height;
+  background-color: $color-red;
+
+  .enquiry {
+    width: 100%;
+    color: white;
+  }
+}
+
+.modal-body {
+  padding-left: $padding-large;
+  padding-right: $padding-large;
+  height: calc(100vh - #{$footer-height} - #{$header-height});
+
+  .product-holder {
+    border: 1px solid $color-yellow;
+    border-radius: 10px;
+    box-shadow: 2px 3px 6px #0003;
+
+    h2 {
+      cursor: pointer;
+    }
+  }
+
+  .alert {
+    margin-top: 1rem;
+  }
+}

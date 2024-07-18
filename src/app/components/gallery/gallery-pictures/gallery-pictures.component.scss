@@ -1,0 +1,52 @@
+@import '../../../../styles.scss';
+
+.container {
+  min-height: 60vh;
+}
+
+.card {
+  height: 0;
+  width: 80%;
+  margin: auto;
+  padding-bottom: 80%;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  h4 {
+    visibility: hidden;
+  }
+  transition: all 0.3s;
+}
+
+.card:hover {
+  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
+  h4 {
+    visibility: visible;
+  }
+}
+
+.image-container {
+  cursor: pointer;
+  height: 0;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 90%;
+  background-size: cover;
+  background-position: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+::ng-deep .breadcrumb {
+  background: transparent !important;
+  margin-left: 30px;
+}
+
+.modal-fluid .modal-content{
+  background: transparent !important;
+}
+
+::ng-deep .img-container {
+  height: 96vh !important;
+  // background: transparent !important;
+}

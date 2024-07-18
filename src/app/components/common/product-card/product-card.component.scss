@@ -1,0 +1,53 @@
+@import "src/styles";
+
+.root {
+  width: 95%;
+}
+
+.controls img {
+  width: 32px;
+  height: 32px;
+}
+
+.bottom {
+  background-color: $color-red;
+  color: white;
+}
+
+.image-main {
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.title {
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+
+  &.animate {
+    animation: button-anim 150ms;
+    -webkit-animation: button-anim 150ms;
+  }
+}
+
+@keyframes button-anim {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

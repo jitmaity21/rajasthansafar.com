@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <mdb-carousel>
+    <mdb-carousel-item *ngFor='let snippet of snippets'>
+      <div class="snippet-container" [style.background-image]="'url(' + snippet.image + ')'">
+        <div class="container text-center">
+          <br>
+          <h2 *ngIf='!authService.isHindi' class="semibold-text">{{snippet.title.toUpperCase()}}</h2>
+          <h2 *ngIf='authService.isHindi' class="semibold-text">{{snippet.titleHindi}}</h2>
+          <div class="content all-center d-none d-md-block">
+            <div class="semibold-text" [innerHTML]="authService.isHindi ? snippet.contentHindi : snippet.content"></div>
+          </div>
+          <div class="d-md-none">
+            <div class="semibold-text" [innerHTML]="authService.isHindi ? snippet.contentHindi : snippet.content"></div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </mdb-carousel-item>
+  </mdb-carousel>
+</div>

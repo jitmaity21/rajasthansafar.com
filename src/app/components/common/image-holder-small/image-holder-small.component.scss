@@ -1,0 +1,20 @@
+@import "src/styles";
+
+.root {
+  width: 95%;
+}
+
+.bottom {
+  background-color: $color-red;
+  color: white;
+}
+
+.image-main {
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.title {
+  cursor: pointer;
+}
+

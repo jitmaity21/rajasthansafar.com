@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="container">
+    <br><br>
+    <h2 class="red-text semibold-text" style="margin-left: 35px;" *ngIf="type!=='Art'">PRODUCT GALLERY</h2>
+    <h2 class="red-text semibold-text" style="margin-left: 35px;" *ngIf="type==='Art'">VIBRANT MOMENTS</h2>
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let product of products" class="slide">
+        <div class='slick-card'>
+          <div class="card">
+            <div class="card-image m-3">
+              <img src="{{product.image}}" alt="">
+            </div>
+            <div class="card-body py-2 px-3 text-center">
+              <h2 class="red-text regular-text">{{product.name}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+    <br>
+  </div>
+</div>

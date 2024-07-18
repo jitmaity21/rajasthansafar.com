@@ -1,0 +1,19 @@
+<app-banner [banner]='banner'></app-banner>
+<app-styled-intro *ngIf='styledIntroContent' [content]='styledIntroContent'></app-styled-intro>
+<app-four-intro-gallery *ngIf='gallery' [gallery]='gallery'></app-four-intro-gallery>
+<app-art-craft-features [features]='features' *ngIf='features && features.length'></app-art-craft-features>
+<app-art-craft-artist-profile [artists]='artists' *ngIf='artists && artists.length'></app-art-craft-artist-profile>
+<app-artist-craft-vibrant-moments [craftId]='currentCraftId'></app-artist-craft-vibrant-moments>
+<app-art-craft-product-gallery [type]='type' [products]='products' *ngIf='products && products.length'>
+</app-art-craft-product-gallery>
+<!-- <app-color-overlay-carousel [slides]='villages' *ngIf='villages && villages.length'></app-color-overlay-carousel> -->
+<app-card-overlay-carousel [slides]='villages' *ngIf='villages && villages.length'></app-card-overlay-carousel>
+<div class="bg-grey">
+  <br><br>
+  <div class="container" *ngIf='crafts && crafts.length'>
+    <h2 class="red-text semibold-text">OTHER ART AND CRAFT</h2>
+  </div>
+  <br>
+  <app-art-attraction-slick-carousel *ngIf='crafts && crafts.length' [slides]='crafts'>
+  </app-art-attraction-slick-carousel>
+</div>

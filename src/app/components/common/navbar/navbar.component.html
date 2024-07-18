@@ -1,0 +1,171 @@
+<div class="image-decor"></div>
+<mdb-navbar SideClass="navbar sticky-top navbar-expand-xl navbar-dark d-flex justify-content-center">
+  <nav class="d-flex mx-4 d-xl-none">
+    <div class="ml-auto">
+      <div class="images">
+        <a *ngIf="!userService.userDisplayName" mdbWavesEffect (click)="openAuthModal()">
+          <mdb-icon fas icon="user" style="font-size: 1.6rem;"></mdb-icon>
+        </a>
+
+        <div *ngIf="userService.userDisplayName" class="btn-group user-holder" mdbDropdown>
+          <span mdbDropdownToggle class="dropdown-toggle text-center user-name pr-2">
+            {{userService.userDisplayName[0]}}
+          </span>
+          <div class="dropdown-menu dropdown-primary p-4 user-sheet">
+            <h2 class="text-center">{{userService.userDisplayName}}</h2>
+            <p class="text-center">{{userService.userEmail}}</p>
+            <div class="d-flex">
+              <button (click)="userService.logout()" class="mx-auto">LOGOUT</button>
+            </div>
+          </div>
+        </div>
+        <a mdbWavesEffect (click)="openCartModal(false)">
+          <mdb-icon fas icon="heart" style="font-size: 1.6rem;"></mdb-icon>
+          <span *ngIf="likeCount" class="badge">
+            <span class="badge-text">{{likeCount}}</span>
+          </span>
+        </a>
+        <a mdbWavesEffect (click)="openCartModal(true)">
+          <mdb-icon fas icon="shopping-cart" style="font-size: 1.6rem;"></mdb-icon>
+          <span *ngIf="cartCount" class="badge">
+            <span class="badge-text">{{cartCount}}</span>
+          </span>
+        </a>
+        <div *ngIf="userService.userIsArtist" class="nav-item dropdown btn-group" mdbDropdown>
+          <a mdbDropdownToggle type="button" class="nav-link">
+            <mdb-icon fas icon="chevron-down" style="font-size: 1.6rem;"></mdb-icon>
+          </a>
+          <div class="artist-menu dropdown-menu dropdown-primary pr-4">
+            <a class="dropdown-item" (click)="navService.navigateToPage('orders')">
+              Orders
+            </a>
+            <a class="dropdown-item" (click)="navService.navigateToPage('products')">
+              Products
+            </a>
+            <a class="dropdown-item" (click)="navService.navigateToPage('add-product')">
+              Add Product
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <links style="width: auto">
+    <ul class="navbar-nav ml-auto text-center">
+      <li class="nav-item">
+        <a href="/#arts&crafts" class="nav-link waves-light" style="white-space: nowrap;" mdbWavesEffect>ART & CRAFT</a>
+      </li>
+      <li class="nav-item d-none d-xl-block">
+        <a href="#" class="nav-link waves-light" mdbWavesEffect>|</a></li>
+      <li class="nav-item">
+        <a href="/explore" class="nav-link waves-light" mdbWavesEffect>EXPLORE</a>
+      </li>
+      <li class="nav-item d-none d-xl-block">
+        <a class="nav-link waves-light" mdbWavesEffect>|</a></li>
+      <li class="nav-item">
+        <a href="/#destinations" class="nav-link waves-light" mdbWavesEffect>DESTINATIONS</a>
+      </li>
+      <li class="nav-item d-none d-xl-block">
+        <a class="nav-link waves-light" mdbWavesEffect>|</a></li>
+      <li class="nav-item" (click)='authService.navigateToPage("tours")'>
+        <a class="nav-link waves-light" mdbWavesEffect>TOURS</a>
+      </li>
+      <li class="nav-item d-none d-xl-block">
+        <a class="nav-link waves-light" mdbWavesEffect>|</a></li>
+      <li class="nav-item" (click)='authService.navigateToPage("actions")'>
+        <a class="nav-link waves-light" mdbWavesEffect>ACTIONS</a>
+      </li>
+      <li class="d-none d-xl-block" (click)='authService.navigateToPage("")'>
+        <a>
+          <img src="../../../../assets/components/common/safar_logo.png" height="30" style="margin: 0px 20px; position: relative; top: 5px;" alt="">
+        </a>
+      </li>
+    </ul>
+  </links>
+
+  <links style="width: auto">
+    <ul class="navbar-nav mr-auto text-center">
+      <li class="nav-item" (click)='authService.navigateToPage("gallery")'>
+        <a class="nav-link waves-light" mdbWavesEffect>GALLERY</a>
+      </li>
+      <li class="nav-item d-none d-xl-block">
+        <a class="nav-link waves-light" mdbWavesEffect>|</a></li>
+      <li class="nav-item" (click)='authService.navigateToPage("media")'>
+        <a class="nav-link waves-light" mdbWavesEffect>MEDIA</a>
+      </li>
+      <li class="nav-item d-none d-xl-block">
+        <a class="nav-link waves-light" mdbWavesEffect>|</a></li>
+      <li class="nav-item" (click)='authService.navigateToPage("whats-new")'>
+        <a class="nav-link waves-light text-nowrap" mdbWavesEffect>WHAT'S NEW</a>
+      </li>
+      <li class="nav-item d-none d-xl-block">
+        <a class="nav-link waves-light" mdbWavesEffect>|</a></li>
+      <li class="nav-item" (click)='triggerContact.emit("Clicked")'>
+        <a class="nav-link waves-light" mdbWavesEffect>CONTACT</a>
+      </li>
+    </ul>
+  </links>
+  <links class="d-none d-xl-block" style="max-width: 24rem">
+    <ul class="navbar-nav d-inline-block">
+      <nav class="d-flex mx-4 mb-4">
+        <div class="ml-auto">
+          <div class="images row">
+            <a *ngIf="!userService.userDisplayName" mdbWavesEffect (click)="openAuthModal()">
+              <mdb-icon fas icon="user" style="font-size: 1.6rem;"></mdb-icon>
+            </a>
+            <div *ngIf="userService.userDisplayName" class="btn-group user-holder" mdbDropdown>
+                <span mdbDropdownToggle class="dropdown-toggle text-center user-name pr-2">
+                  {{userService.userDisplayName[0]}}
+                </span>
+              <div class="dropdown-menu dropdown-primary p-4 user-sheet">
+                <h2 class="text-center">{{userService.userDisplayName}}</h2>
+                <p class="text-center">{{userService.userEmail}}</p>
+                <div class="d-flex">
+                  <button *ngIf="!userService.userIsArtist" (click)="navService.navigateToPage('enquire')"
+                          class="mx-auto outline">ENQUIRIES
+                  </button>
+                  <button (click)="userService.logout()" class="mx-auto">LOGOUT</button>
+                </div>
+              </div>
+            </div>
+            <a mdbWavesEffect (click)="openCartModal(false)">
+              <mdb-icon fas icon="heart" style="font-size: 1.6rem;"></mdb-icon>
+              <span *ngIf="likeCount" class="badge">
+                  <span class="badge-text">{{likeCount}}</span>
+                </span>
+            </a>
+            <a mdbWavesEffect (click)="openCartModal(true)">
+              <mdb-icon fas icon="shopping-cart" style="font-size: 1.6rem;"></mdb-icon>
+              <span *ngIf="cartCount" class="badge">
+                  <span class="badge-text">{{cartCount}}</span>
+                </span>
+            </a>
+            <div *ngIf="userService.userIsArtist" class="nav-item dropdown btn-group" mdbDropdown>
+              <a mdbDropdownToggle type="button" class="nav-link">
+                <mdb-icon fas icon="chevron-down" style="font-size: 1.6rem;"></mdb-icon>
+              </a>
+              <div class="artist-menu dropdown-menu dropdown-primary pr-4">
+                <a class="dropdown-item" (click)="navService.navigateToPage('orders')">
+                  Orders
+                </a>
+                <a class="dropdown-item" (click)="navService.navigateToPage('products')">
+                  Products
+                </a>
+                <a class="dropdown-item" (click)="navService.navigateToPage('add-product')">
+                  Add Product
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </ul>
+  </links>
+
+  <!-- <li class="d-none d-lg-block" (click)='authService.navigateToPage("")'>
+
+
+  </li> -->
+
+</mdb-navbar>

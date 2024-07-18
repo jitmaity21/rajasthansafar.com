@@ -1,0 +1,25 @@
+<div class="container-fluid bg-yellow" *ngIf="videos?.length">
+  <div class="container my-4 p-4 text-center">
+    <br>
+    <h2 class="semibold-text red-text">SPOTLIGHT</h2>
+    <br><br>
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let video of videos" class="slide">
+        <div class='slick-card'>
+          <a href=""></a>
+          <div class="card">
+            <div class="embed-responsive embed-responsive-4by3">
+              <iframe class="embed-responsive-item" [src]='video.youtube'></iframe>
+            </div>
+            <div class="card-body py-2 px-3 text-center">
+              <h4 *ngIf='!authService.isHindi' class="red-text semibold-text">{{video.title}}</h4>
+              <h4 *ngIf='authService.isHindi' class="red-text semibold-text">{{video.titleHindi}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+    <br>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div *ngIf="connecteds && connecteds.length" class="container">
+  <br><br>
+  <div class="my-4 text-center">
+    <h2 class="semibold-text red-text">GET CONNECTED</h2>
+  </div>
+  <div class="collaboartions">
+    <mdb-carousel [animation]="'slide'" class="mb-4">
+      <mdb-carousel-item *ngFor='let connected of connecteds'>
+        <div class="card">
+          <div class="row">
+            <div class="py-3 col-md-6">
+              <img class="col image" src="{{connected.image}}" alt="">
+            </div>
+            <div class="col-md-6 my-3">
+              <div class="mx-4">
+                <h4 class="red-text semibold-text">
+                  {{ authService.isHindi ? connected.title.hindi : connected.title.english }}</h4>
+                <div class="regular-text" [innerHTML]="authService.isHindi ? connected.details.hindi : connected.details.english">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mdb-carousel-item>
+    </mdb-carousel>
+  </div>
+</div>
+
+<br><br>
+
+<div *ngIf="comments && comments.length" class="container my-4">
+  <div class="text-center">
+    <h2 class="my-4 semibold-text red-text">GUEST COMMENTS</h2>
+    <br><br>
+    <div class="comments">
+
+      <mdb-carousel [animation]="'slide'" class="mb-4">
+        <mdb-carousel-item *ngFor='let comment of comments'>
+          <div class="text-center m-auto">
+            <div class="guest-image" [style.background-image]="'url('+comment.image+')'"></div>
+            <br>
+            <p>{{comment.comment}}</p>
+            <br>
+            <p>{{comment.name}}</p>
+            <p>{{comment.date}}</p>
+          </div>
+
+        </mdb-carousel-item>
+      </mdb-carousel>
+    </div>
+    <br><br>
+  </div>
+</div>

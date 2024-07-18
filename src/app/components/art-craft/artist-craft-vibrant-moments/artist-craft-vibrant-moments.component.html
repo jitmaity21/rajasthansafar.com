@@ -1,0 +1,16 @@
+<div *ngIf="videos && videos.length" class="container mt-5">
+  <h2 class="semibold-text red-text">VIBRANT MOMENTS</h2>
+  <br>
+  <mdb-carousel [animation]="'slide'">
+    <mdb-carousel-item *ngFor='let video of videos' class="pb-5">
+      <div class="w-100">
+        <div class="embed-responsive embed-responsive-21by9">
+          <iframe class="embed-responsive-item" [src]='video.url'></iframe>
+        </div>
+        <h2 class="text-center semibold-text name mt-2">
+          {{ authService.isHindi ? video.title.hindi : video.title.english }}</h2>
+      </div>
+    </mdb-carousel-item>
+  </mdb-carousel>
+  <br>
+</div>

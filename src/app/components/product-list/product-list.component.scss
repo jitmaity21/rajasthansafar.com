@@ -1,0 +1,35 @@
+@import "src/styles";
+
+.error::before {
+  content: none;
+}
+
+::ng-deep pagination-controls {
+  ul {
+    padding: 0;
+  }
+
+  li.current {
+    background: $color-red !important;
+  }
+
+  *:focus {
+    outline: none;
+  }
+}
+
+h1{
+  position: relative;
+  color: $color-red;
+  font-size: 1.5rem;
+  padding-bottom: 12px;
+  &::before {
+    position: absolute;
+    top: calc(#{1.5rem} + #{$padding});
+    left: 0;
+    content: "";
+    height: 2px;
+    width: 40px;
+    background-color: $color-red;
+  }
+}

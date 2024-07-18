@@ -1,0 +1,36 @@
+<div class="container">
+  <mdb-breadcrumb>
+    <mdb-breadcrumb-item *ngFor='let breadcrumb of breadCrumbList; let i = index'
+                         (click)='handleBreadCrumb(breadcrumb, i)' [class.active]='(i+1)===breadCrumbList.length'>
+      <h4>{{breadcrumb.name}}</h4>
+    </mdb-breadcrumb-item>
+  </mdb-breadcrumb>
+  <div *ngIf='selectedList && selectedList.length'>
+    <div class="row">
+      <div class="col-md-4" *ngFor='let category of selectedList | paginate: { itemsPerPage: 9, currentPage: p };'>
+        <div class="card m-4" (click)='handleCategories(category); breadCrumbList.push(category)'
+             [style.background-image]="'url('+category.image+')'">
+          <h4 class="all-center text-center semibold-text white-text">{{category.name}}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <pagination-controls autoHide="true" (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+  <div *ngIf='gallery && gallery.length'>
+    <div class="row">
+      <div class="col-md-6 my-3" *ngFor='let youtube of gallery | paginate: { itemsPerPage: 6, currentPage: p }'>
+        <div class="video-container">
+          <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" [src]='youtube'></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="text-center">
+      <pagination-controls autoHide="true" (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

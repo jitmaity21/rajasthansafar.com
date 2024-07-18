@@ -1,0 +1,90 @@
+@import "src/styles";
+
+.error {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid $color-red;
+  border-radius: 5px;
+
+  h1 {
+    padding-bottom: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.spinner-border {
+  border-color: white white white transparent;
+}
+
+.user-data {
+  padding: $padding;
+  border: 1px solid $color-red;
+  border-radius: 5px;
+
+  h1 {
+    padding-bottom: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+input:focus {
+  outline: $color-red solid 2px;
+}
+
+
+hr {
+  border-bottom: 1px solid $color-red;
+}
+
+button {
+  background: $color-red;
+  border: none;
+  width: 15rem;
+  padding: 6px 10px;
+  color: white;
+  font: inherit;
+  outline: inherit;
+}
+
+::ng-deep app-image-holder-small img {
+  cursor: initial !important;
+}
+
+::ng-deep app-image-holder-small .title {
+  cursor: initial !important;
+}
+
+.container{
+  h1{
+    position: relative;
+    color: $color-red;
+    font-size: 1.5rem;
+    padding-bottom: 12px;
+    &::before {
+      position: absolute;
+      top: calc(#{1.5rem} + #{$padding});
+      left: 0;
+      content: "";
+      height: 2px;
+      width: 40px;
+      background-color: $color-red;
+    }
+  }
+
+  h2{
+    color: $color-red;
+    font-size: 1.4rem;
+  }
+}

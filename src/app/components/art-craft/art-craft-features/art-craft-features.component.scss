@@ -1,0 +1,38 @@
+@import '../../../../styles.scss';
+
+h2.name {
+  padding-bottom: 10px;
+  border-bottom: solid 1px black;
+}
+
+::ng-deep .art-feature .carousel-indicators li {
+  background-color: $color-red !important;
+}
+
+::ng-deep .art-feature .carousel-control-next-icon,
+::ng-deep .art-feature .carousel-control-prev-icon {
+  background-color: $color-red;
+}
+
+::ng-deep .art-feature .carousel-control-next-icon {
+  @media screen and (min-width: 768px) {
+  position: relative;
+  left: 35px;
+  }
+}
+
+::ng-deep .art-feature .carousel-control-prev-icon {
+  @media screen and (min-width: 768px) {
+    position: relative;
+    right: 35px;
+  }
+}
+
+::ng-deep .art-feature .carousel-control-prev{
+  justify-content: flex-start;
+  overflow: visible !important;
+}
+::ng-deep .art-feature .carousel-control-next {
+  justify-content: flex-end;
+  overflow: visible !important;
+}

@@ -1,0 +1,18 @@
+<app-banner [banner]='banner'></app-banner>
+<app-styled-intro [content]='styledIntroContent'></app-styled-intro>
+<app-village-snippet-carousel *ngIf='snippets && snippets.length' [snippets]='snippets'></app-village-snippet-carousel>
+<div class="bg-dark-grey">
+  <app-village-quick-facts [village]='quickFacts'></app-village-quick-facts>
+</div>
+<!-- <app-color-overlay-carousel *ngIf='crafts && crafts.length' [slides]='crafts'></app-color-overlay-carousel> -->
+<app-card-overlay-carousel *ngIf='crafts && crafts.length' [slides]='crafts'></app-card-overlay-carousel>
+<app-art-craft-artist-profile [artists]='artists' *ngIf='artists && artists.length'></app-art-craft-artist-profile>
+<div class="bg-grey" *ngIf='attractions && attractions.length'>
+  <br><br>
+  <div class="container">
+    <h2 class="semibold-text red-text">NEARBY ATTRACTIONS</h2>
+  </div>
+  <app-art-attraction-slick-carousel [slides]='attractions'></app-art-attraction-slick-carousel>
+</div>
+<app-events-gallery *ngIf='events && events.length' [events]='events'></app-events-gallery>
+<br>

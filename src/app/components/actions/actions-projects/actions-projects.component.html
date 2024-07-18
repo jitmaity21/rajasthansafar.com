@@ -1,0 +1,68 @@
+<div class="container" *ngIf="projects?.length">
+  <br>
+  <div class="text-center">
+    <h2 class="semibold-text red-text my-4">PROJECT HIGHLIGHTS</h2>
+  </div>
+  <div class="card my-4 p-2" *ngFor='let project of projects | paginate: { itemsPerPage: 3, currentPage: p }'>
+    <div class="row">
+      <div class="col-md-5 p-0">
+        <img class="w-100" src="{{project.cover_image}}" alt="">
+      </div>
+      <div class="col-md-7 p-0">
+        <div class="all-center w-100 p-4 d-none d-lg-block">
+          <h4 class="semibold-text red-text">{{ authService.isHindi ? project.titleHindi : project.title }}</h4>
+          <div class="regular-text" [innerHTML]="authService.isHindi ? project.contentHindi : project.content"></div>
+          <br>
+          <button type="button" mdbBtn color="danger" mdbWavesEffect (click)='triggerProject(project)'>
+            <h4>LEARN MORE</h4>
+          </button>
+        </div>
+        <div class="d-block d-lg-none">
+          <h4 class="semibold-text red-text mt-2">{{ authService.isHindi ? project.titleHindi : project.title}}</h4>
+          <div class="regular-text" [innerHTML]="authService.isHindi ? project.contentHindi : project.content"></div>
+          <br>
+          <button type="button" mdbBtn color="danger" mdbWavesEffect (click)='triggerProject(project)'>
+            <h4>LEARN MORE</h4>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="text-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  <br>
+</div>
+
+<div mdbModal #project="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" style="overflow-y: auto;">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" *ngIf='modalData'>
+      <div class="modal-body mx-3">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="project.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <br>
+        <mdb-carousel [animation]="'slide'">
+          <mdb-carousel-item *ngFor='let story of modalData.stories'>
+
+            <div class="container text-center">
+              <h2 *ngIf='!authService.isHindi' class="semibold-text red-text mb-4">
+                {{story.title}}</h2>
+              <h2 *ngIf='authService.isHindi' class="semibold-text red-text mb-4">
+                {{story.title_hindi}}</h2>
+              <br>
+              <img src="{{story.image}}" style="width: 100%; height: auto;" alt="">
+              <br>
+              <div class="regular-text mt-2" *ngIf='!authService.isHindi' [innerHTML]="story.content"></div>
+              <div class="regular-text mt-2" *ngIf='authService.isHindi' [innerHTML]="story.content_hindi"></div>
+            </div>
+          </mdb-carousel-item>
+        </mdb-carousel>
+        <br><br>
+      </div>
+
+    </div>
+  </div>
+</div>

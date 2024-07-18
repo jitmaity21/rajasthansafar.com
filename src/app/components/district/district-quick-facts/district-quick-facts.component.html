@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="bg-red">
+
+    <div class="container">
+      <br><br>
+      <h2 class="semibold-text ml-4" *ngIf='district && district.name'>{{district.name.toUpperCase()}}: QUICK FACTS</h2>
+      <div class="row p-4">
+        <div class="col-md-2 col-6 quick-fact">
+          <div *ngIf='district.distances && district.distances.length'>
+            <p class="regular-text ml-2">Distance from</p>
+            <p *ngFor='let distance of district.distances'>
+              <span class="semibold-text ml-2">{{distance.name}}</span> > <span
+                class="regular-text">{{distance.distance}}
+                kms</span>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-2 col-6 quick-fact">
+          <img src="{{weatherImage}}" alt="">
+          <p class="regular-text">Weather</p>
+          <p class="semibold-text">{{district.weather}}</p>
+        </div>
+        <div class="col-md-2 col-6 quick-fact">
+          <img src="../../../../assets/components/district/car_icon.png" alt="">
+          <p class="regular-text">Car Hire</p>
+          <p class="semibold-text">{{district.carHire}}</p>
+        </div>
+        <div class="col-md-2 col-6 quick-fact">
+          <img src="../../../../assets/components/district/hotel_icon.png" alt="">
+          <p class="regular-text">Hotel Hire</p>
+          <p class="semibold-text">{{district.carHire}}</p>
+        </div>
+        <div class="col-md-2 col-6 quick-fact">
+          <img src="../../../../assets/components/district/appcab_icon.png" alt="">
+          <p class="regular-text">App Cab</p>
+          <p class="semibold-text">{{district.cabApp}}</p>
+        </div>
+        <div class="col-md-2 col-6 quick-fact">
+          <img src="../../../../assets/components/district/appfood_icon.png" alt="">
+          <p class="regular-text">App Food</p>
+          <p class="semibold-text">{{district.foodApp}}</p>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+  <div>
+    <div class="row">
+      <div class="col-md-6 p-0">
+        <img class="w-100 all-center d-none d-md-block" src="{{district.mapImage}}" alt="">
+        <img class="w-100 d-block d-md-none" src="{{district.mapImage}}" alt="">
+      </div>
+      <div class="col-md-6 p-0" *ngIf='district.districtVideo'>
+        <div class="embed-responsive embed-responsive-4by3">
+          <iframe class="embed-responsive-item" [src]="district.districtVideo"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>

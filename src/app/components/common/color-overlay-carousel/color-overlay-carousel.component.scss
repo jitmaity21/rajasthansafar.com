@@ -1,0 +1,42 @@
+@import '../../../../styles.scss';
+
+
+h1 {
+  font-family: 'Dandelon';
+  color: $color-red;
+  font-size: 80px;
+}
+
+.content {
+  padding: 0;
+
+  .all-center {
+    z-index: 3;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    height: 100%;
+  }
+}
+
+.carousel-image {
+  padding: 0;
+
+  img {
+    width: 110%;
+    position: relative;
+    left: -10%;
+  }
+}
+
+.yellow-bg {
+  background-color: $color-yellow;
+  padding: 0;
+
+  img {
+    width: 100%;
+  }
+}

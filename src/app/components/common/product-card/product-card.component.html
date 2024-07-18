@@ -1,0 +1,24 @@
+<div class="mx-auto root">
+  <div class="embed-responsive embed-responsive-1by1" (click)="onProdClick()">
+    <img src="{{src}}" alt="{{title}}" class="embed-responsive-item image-main">
+  </div>
+
+  <div class="d-flex w-100 p-3 bottom">
+    <div>
+      <p class="semibold-text mt-auto mb-0 title" (click)="onProdClick()">{{title}}</p>
+      <!--<p *ngIf="desc" class="mb-0">{{desc}}</p>-->
+    </div>
+
+    <div *ngIf="id && type !== 'artist'" class="ml-auto my-auto text-right controls">
+      <button class="ml-3 my-1" (click)="onCartClick($event)">
+        <img *ngIf="!isInCart()" src="assets/ic_cart.jpg" alt="Add to cart">
+        <img *ngIf="isInCart()" src="assets/ic_cart_fill.jpg" alt="Remove from cart">
+      </button>
+
+      <button class="ml-3 my-1" (click)="onWishClick($event)">
+        <img *ngIf="!isInWish()" src="assets/ic_like.jpg" alt="Add to liked items">
+        <img *ngIf="isInWish()" src="assets/ic_like_fill.jpg" alt="Remove from liked items">
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+@import '../../../styles.scss';
+
+.text-center {
+  max-width: 550px;
+  display: block;
+  margin: auto !important;
+}
+
+.image-holder {
+  height: 0;
+  width: inherit;
+  padding-bottom: 80%;
+  background-size: cover;
+  background-position: center;
+}
+
+.card {
+  height: 650px;
+  border-radius: 10px;
+  background-color: $color-grey;
+  transition: all 0.3s;
+  cursor: pointer;
+  overflow-y: hidden;
+}
+
+.card:hover {
+  background-color: $color-yellow;
+}

@@ -1,0 +1,51 @@
+<div class="container-fluid attractions">
+  <div class="container">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+        <div class='slick-card'>
+          <div class="card" (click)='clickEvent(slide.craftId, slide.attractionId)'>
+            <div class="card-image">
+              <img src="{{slide.image}}" alt="">
+            </div>
+            <div class="card-body py-2 px-3">
+              <h4 *ngIf='!_authService.isHindi' class="text-center red-text">{{slide.name}}</h4>
+              <h4 *ngIf='_authService.isHindi' class="text-center red-text">{{slide.name_hindi}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+    <br>
+  </div>
+</div>
+
+<div mdbModal #attractionModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="myattractionModalLabel" aria-hidden="true" style="overflow-y: auto;">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content" *ngIf='attractionDetails'>
+      <div class="modal-header text-center">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="attractionModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h2 *ngIf='!_authService.isHindi' class="modal-title w-100 text-center red-text">{{attractionDetails.name}}</h2>
+        <h2 *ngIf='_authService.isHindi' class="modal-title w-100 text-center red-text">{{attractionDetails.name_hindi}}</h2>
+      </div>
+      <div class="modal-body">
+        <div class="row m-2">
+          <div class="col-md-6">
+            <img class="d-block w-100" src="{{attractionDetails.image}}" alt="First slide" style="max-width: 100%;">
+          </div>
+          <div class="col-md-6 text-center">
+            <h4 *ngIf='!_authService.isHindi' class="regular-text">{{attractionDetails.description}}</h4>
+            <h4 *ngIf='_authService.isHindi' class="regular-text">{{attractionDetails.description_hindi}}</h4>
+            <h4><span class="regular-text">Location: </span><span
+                class="semibold-text">{{attractionDetails.location}}</span>
+            </h4>
+            <!-- <h4><span class="regular-text">Date: </span><span class="semibold-text">{{eventDetails.date}}</span></h4> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

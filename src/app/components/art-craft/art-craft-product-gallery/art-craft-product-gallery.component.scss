@@ -1,0 +1,42 @@
+@import '../../../../styles.scss';
+
+.container-fluid {
+  background-color: $color-grey;
+}
+
+.slick-slider {
+  width: 100%;
+  margin: auto;
+}
+
+.slick-disabled {
+  img {
+    opacity: 0.2;
+  }
+}
+
+.card {
+  max-width: 300px;
+  margin: 20px auto;
+  cursor: pointer;
+
+  @media screen and (max-width: 576px) {
+    max-width: 80vw;
+  }
+
+  .card-image {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+
+    @media screen and (max-width: 576px) {
+      height: 80vw;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+}

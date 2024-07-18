@@ -1,0 +1,27 @@
+<br><br>
+<div class="container-fluid">
+  <div class="row" *ngIf='gallery && gallery.length'>
+    <div class="col-md-3 gallery-item">
+      <div class="gallery-item-1">
+        <img src="{{gallery[0].link}}" alt="">
+      </div>
+    </div>
+    <div class="col-md-3 gallery-item ">
+      <div class="gallery-item-2">
+        <img src="{{gallery[1].link}}" alt="">
+      </div>
+      <div class="gallery-item-3">
+        <img src="{{gallery[2].link}}" alt="">
+      </div>
+    </div>
+    <div class="col-md-6 gallery-item">
+      <div class="gallery-item-4">
+        <img *ngIf='gallery[3].type==="Image"' src="{{gallery[3].link}}" alt="">
+        <div *ngIf='gallery[3].type==="Video"' class="embed-responsive embed-responsive-4by3">
+          <iframe class="embed-responsive-item" [src]='gallery[3].link'></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>

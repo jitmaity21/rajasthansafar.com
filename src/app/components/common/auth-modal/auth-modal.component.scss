@@ -1,0 +1,140 @@
+@import "src/styles";
+
+$button-radius: 8px;
+
+button {
+  border-radius: $button-radius;
+  border: none;
+  padding: 6px 10px;
+  font: inherit;
+  outline: inherit;
+  font-size: 1rem;
+  color: white;
+}
+
+.modal-header {
+  position: relative;
+  background-color: #0001;
+  border: 0;
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+
+  .close {
+    opacity: 1;
+
+    span {
+      font-size: 2.5rem;
+      font-weight: 100;
+      color: #000;
+    }
+
+    &:hover {
+      transform: scale(1.1, 1.1);
+    }
+  }
+
+  img {
+    height: 128px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #0008;
+  }
+
+  .login-tabs {
+    position: absolute;
+    left: $padding-large;
+    right: $padding-large;
+    bottom: 0;
+    transform: translateY(50%);
+    background-color: $color-red;
+    border-radius: $button-radius;
+    padding: 0.5rem;
+
+    button {
+      width: 11.2rem;
+      background-color: transparent;
+
+      mdb-icon {
+        margin-right: $padding;
+      }
+
+      &.selected {
+        cursor: initial;
+        background-color: #fff1;
+      }
+    }
+  }
+}
+
+.modal-body {
+  padding-left: $padding-large;
+  padding-right: $padding-large;
+}
+
+form {
+  .error-message {
+    position: initial;
+  }
+
+  button {
+    width: 100%;
+    background-color: $color-red;
+
+    &:disabled {
+      background-color: rgba($color-red, 0.5);
+    }
+  }
+
+  label {
+    background-color: white;
+    left: $padding;
+    top: -0.4rem;
+    font-size: 0.9rem;
+
+    &.active {
+      color: #0008 !important;
+      top: -0.1rem;
+    }
+  }
+
+  input {
+    padding-left: $padding;
+    border: 1px solid #0004;
+    border-radius: 4px;
+    margin-bottom: 0;
+    width: 96%;
+
+    &:-webkit-autofill:not(.browser-default):not([type=search]) + label {
+      width: initial !important;
+      margin-bottom: 0;
+      line-height: 1;
+      top: 0.6rem;
+      transition: initial;
+    }
+  }
+
+  input:focus:not([readonly]) {
+    box-shadow: none !important;
+    border-bottom: 1px solid #0004 !important;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .modal-header {
+    padding-bottom: 4rem;
+
+    img, p {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .modal-header {
+    img {
+      height: 86px;
+    }
+  }
+}

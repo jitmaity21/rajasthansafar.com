@@ -1,0 +1,33 @@
+@import "src/styles.scss";
+
+h1 {
+  font-size: 80px;
+}
+
+.subheading {
+  // background-image: url('../../../../assets/components/common/subhead_bg.png');
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // padding: 40px 50px;
+  // background-size: contain;
+  // max-width: 10px;
+  // min-width: fit-content;
+  // margin: auto;
+
+  max-width: fit-content;
+  margin: auto;
+  background-color: $color-red;
+  padding: 7px 25px;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.content {
+  @media screen and (min-width: 576px) {
+    max-width: 64rem;
+    display: block;
+    margin: auto;
+  }
+}

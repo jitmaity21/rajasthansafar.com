@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="container">
+    <br><br>
+    <h2 class="red-text semibold-text" style="margin-left: 35px;">UPCOMING EVENTS</h2>
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let event of events" class="slide">
+        <div class='slick-card'>
+          <div class="card" (click)='triggerModal(event.id)'>
+            <div class="card-image" [style.background-image]="'url(' +event.image +')'">
+            </div>
+            <div class="card-body py-2 px-3">
+              <h4 class="red-text semibold-text">{{event.date}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+    <br>
+  </div>
+</div>
+
+<div mdbModal #attractionModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="myattractionModalLabel" aria-hidden="true" style="overflow-y: auto;">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" *ngIf='eventDetails'>
+      <div class="modal-body">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="attractionModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="row m-4">
+          <div class="col-md-6">
+            <mdb-carousel>
+              <mdb-carousel-item *ngFor='let image of eventDetails.images' style="width: 100%;">
+                <img class="d-block w-100" src="{{image}}" alt="First slide" style="max-width: 100%;">
+              </mdb-carousel-item>
+            </mdb-carousel>
+          </div>
+          <div class="col-md-6 text-center p-4">
+            <div>
+              <br><br>
+              <h4 class="semibold-text">{{eventDetails.name}}</h4>
+              <div [innerHTML]="eventDetails.description"></div>
+              <p *ngIf="eventDetails.venue"><span class="regular-text">Venue: </span><span
+                  class="semibold-text">{{eventDetails.venue}}</span></p>
+              <p *ngIf="eventDetails.date"><span class="regular-text">Date: </span><span
+                  class="semibold-text">{{eventDetails.date}}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

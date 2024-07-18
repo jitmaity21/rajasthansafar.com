@@ -1,0 +1,94 @@
+@import "src/styles";
+
+form {
+  .error-message {
+    position: initial;
+  }
+
+  button {
+    width: 100%;
+    background-color: $color-red;
+
+    &:disabled {
+      background-color: rgba($color-red, 0.5);
+    }
+  }
+
+  label {
+    background-color: white;
+    left: $padding;
+    top: -0.4rem;
+    font-size: 0.9rem;
+
+    &.active {
+      color: #0008 !important;
+      top: -0.1rem;
+    }
+  }
+
+  input {
+    padding-left: $padding;
+    border: 1px solid #0004;
+    border-radius: 4px;
+    margin-bottom: 0;
+    width: 96%;
+
+    &:-webkit-autofill:not(.browser-default):not([type=search]) + label {
+      width: initial !important;
+      margin-bottom: 0;
+      line-height: 1;
+      top: 0.6rem;
+      transition: initial;
+    }
+  }
+
+  input:focus:not([readonly]) {
+    box-shadow: none !important;
+    border-bottom: 1px solid #0004 !important;
+  }
+}
+
+$button-radius: 8px;
+
+button {
+  border-radius: $button-radius;
+  border: none;
+  padding: 6px 10px;
+  font: inherit;
+  outline: inherit;
+  font-size: 1rem;
+  color: white;
+}
+
+h1 {
+  position: relative;
+  color: $color-red;
+  font-size: 1.5rem;
+  padding-bottom: 12px;
+
+  &::before {
+    position: absolute;
+    top: calc(#{1.5rem} + #{$padding});
+    left: 0;
+    content: "";
+    height: 2px;
+    width: 40px;
+    background-color: $color-red;
+  }
+}
+
+.label-text {
+  font-size: $text-norm !important;
+  padding: 0;
+  margin-left: -0.7rem;
+
+  input {
+    width: initial;
+    margin-right: 10px;
+  }
+}
+
+.label-text-red {
+  color: $color-red;
+  font-size: $text-h2 !important;
+}

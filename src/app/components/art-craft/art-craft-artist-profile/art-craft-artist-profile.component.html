@@ -1,0 +1,23 @@
+<div class="yellow-bg">
+  <br><br>
+  <div class="container">
+    <h2 class="semibold-text red-text">ARTISTS PROFILE</h2>
+    <br>
+    <mdb-carousel [animation]="'fade'" class="art-feature">
+      <mdb-carousel-item *ngFor='let artist of artists'>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="artist-image-container mx-4">
+              <img src="{{artist.image}}" alt="">
+            </div>
+            <br><br><br>
+          </div>
+          <div class="col-md-9">
+            <h2 class="semibold-text"> {{ authService.isHindi ? artist.nameHindi : artist.name }} </h2>
+            <div class="regular-text" [innerHTML]="authService.isHindi ? artist.contentHindi : artist.content"></div>
+          </div>
+        </div>
+      </mdb-carousel-item>
+    </mdb-carousel>
+  </div>
+</div>

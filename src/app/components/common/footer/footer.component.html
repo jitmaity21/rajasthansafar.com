@@ -1,0 +1,169 @@
+<div class="container-fluid">
+  <img src="../../../../assets/components/common/footer_top_bg.png" style="width: 100%;" alt="">
+
+  <div class="footer-top">
+    <div class="container">
+      <div class="row regular-text">
+
+        <!-- Districts -->
+        <div class="col-md-2 col-xs-6">
+          <ul>
+            <li *ngFor='let district of districts' (click)='_authService.navigateToPage("district/" + district.id)'>
+              {{district.name.toUpperCase()}}</li>
+          </ul>
+        </div>
+
+        <!-- Arts -->
+        <div class="col-md-2 col-xs-6">
+          <ul>
+            <li class="regular-text" *ngFor='let art of arts'
+              (click)='_authService.navigateToPage("art&craft/" + art.id)'>
+              {{art.name.toUpperCase()}}</li>
+          </ul>
+        </div>
+
+        <div class="col-md-2 col-xs-6">
+          <ul>
+            <li>FAQ</li>
+            <li>BLOG</li>
+            <li (click)='_authService.navigateToPage("media")'>MEDIA</li>
+            <li (click)='_authService.navigateToPage("gallery")'>GALLERY</li>
+            <li (click)='_authService.navigateToPage("downloads")'>DOWNLOADS</li>
+          </ul>
+        </div>
+
+        <div class="col-md-2 col-xs-6"></div>
+
+        <div class="col-md-4 col-xs-12">
+          <ul style="width: fit-content;">
+            <li style="font-size: 14px; font-style: italic; margin: 5px;">
+              <i style="font-size: 20px; position: relative; top: 3px;" class="far fa-envelope"></i>
+              info@rajasthansafar.com</li>
+            <li>
+              <ul style="text-align: right;">
+                <li style="margin: 5px;">
+                  <ul class="list-inline">
+                    <li class="list-inline-item rounded-border" (click)='socialNavigate("fb")'>
+                      <i class="fab fa-facebook-f"></i>
+                    </li>
+                    <li class="list-inline-item rounded-border" (click)='socialNavigate("ig")'>
+                      <i class="fab fa-instagram"></i>
+                    </li>
+                    <li class="list-inline-item rounded-border" (click)='socialNavigate("yt")'>
+                      <i class="fab fa-youtube"></i>
+                    </li>
+                  </ul>
+                </li>
+                <li style="margin: 5px;"><img style="width: 110px;"
+                    src="../../../../assets/components/common/cc by nc.png" alt="">
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="text-center p-2">
+      <ul class="list-inline">
+        <li class="list-inline-item" style="cursor: pointer;" (click)='showForm()'>CONTACT</li>
+        <li class="list-inline-item">|</li>
+        <li class="list-inline-item" style="cursor: pointer;">TERMS OF SERVICE</li>
+        <li class="list-inline-item">|</li>
+        <li class="list-inline-item" style="cursor: pointer;">PRIVACY POLICY</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom text-center regular-text bg-white">
+    <br>
+    <p>Design and Implementation</p>
+    <p>Contact Base(<a href="https://banglanatak.com" target="_blank" class="banglantak-link">www.banglanatak.com</a>)
+    </p>
+    <img src="../../../../assets/components/common/banglanatak_logo.png" alt="">
+  </div>
+</div>
+
+
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" style="overflow-y: auto;">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body mx-3">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <br>
+        <div class="row regular-text">
+
+          <div class="col-md-6">
+            <div class="form-container m-4">
+              <h2>Write to us</h2>
+              <br>
+              <div class="md-form mb-5">
+                <!-- <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon> -->
+                <input type="text" id="form34" class="form-control" mdbInput mdbValidate
+                  [formControl]="contactFormModalName">
+                <label for="form34">Your name</label>
+              </div>
+
+              <div class="md-form mb-5">
+                <!-- <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon> -->
+                <input type="email" id="form29" class="form-control" mdbInput mdbValidate
+                  [formControl]="contactFormModalEmail">
+                <label for="form29">Your email</label>
+              </div>
+
+              <div class="md-form mb-5">
+                <!-- <mdb-icon fas icon="tag" class="prefix grey-text"></mdb-icon> -->
+                <input type="text" id="form32" class="form-control" mdbInput mdbValidate
+                  [formControl]="contactFormModalSubject">
+                <label for="form32">Subject</label>
+              </div>
+
+              <div class="md-form">
+                <!-- <mdb-icon fas icon="pencil-alt" class="prefix grey-text"></mdb-icon> -->
+                <textarea type="text" id="form8" class="md-textarea form-control" rows="1" mdbInput mdbValidate
+                  [formControl]="contactFormModalMessage"></textarea>
+                <label for="form8">Your message</label>
+              </div>
+
+              <div class="text-center">
+                <button mdbBtn color="unique" class="waves-light" mdbWavesEffect
+                  (click)='send(); (validatingForm.status=="VALID") && frame.hide() '
+                  [disabled]="validatingForm.status=='INVALID'">send
+                  <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-6">
+            <br>
+            <div class="address mt-4">
+              <h3>Kolkata Office</h3>
+              <p>+91 3340047483</p>
+              <p>188/89, Prince Anwar Shah Road, Kolkata - 700045</p>
+            </div>
+            <br>
+            <div class="address">
+              <h3>Rajasthan Office</h3>
+              <p>Krishna Niwas, 1st Floor,
+                G - 15 Krishna Marg, C - Scheme, Jaipur - 302001</p>
+              <!-- <p>E-781, C.R.Park, New Delhi - 110019</p> -->
+            </div>
+            <br>
+            <!-- <div class="address">
+              <h3>Delhi Office</h3>
+              <p>+91 112627225</p>
+              <p>E-781, C.R.Park, New Delhi - 110019</p>
+            </div> -->
+            <br>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

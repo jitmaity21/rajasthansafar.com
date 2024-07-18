@@ -1,0 +1,133 @@
+<div class="modal-header">
+  <button type="button" class="close" (click)="modalRef.hide()">
+    <span>×</span>
+  </button>
+  <div class="w-100 d-flex flex-column justify-content-center">
+    <img src="assets/images/common/logo_placeholder.png" alt="Logo" class="mx-auto mt-2">
+    <p class="text-center mt-4 mb-0">{{type == 0 ? 'WELCOME BACK!' : type == 1 ? 'WELCOME!' : ''}}</p>
+
+    <div class="login-tabs row">
+      <div class="col-6">
+        <button class="login" [disabled]="loading" [class.selected]="type == 0" (click)="changeType(0)">
+          <mdb-icon fas icon="user"></mdb-icon>
+          <span>Log In</span>
+        </button>
+      </div>
+      <div class="col-6">
+        <button class="register" [disabled]="loading" [class.selected]="type == 1" (click)="changeType(1)">
+          <mdb-icon fas icon="user-plus"></mdb-icon>
+          <span>Register</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal-body mt-3">
+  <div *ngIf="isForm" class="forms">
+
+    <!-- Login form -->
+    <form *ngIf="type == 0" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="md-form mb-3">
+        <input type="email" id="user-form-login-email" formControlName="loginEmail" class="form-control"
+               mdbInput>
+        <label for="user-form-login-email">EMAIL</label>
+        <mdb-error
+          *ngIf="loginEmail.invalid && (loginEmail.dirty || loginEmail.touched)">
+          INVALID EMAIL
+        </mdb-error>
+      </div>
+
+      <div class="md-form mb-3">
+        <input type="password" id="user-form-login-pass" formControlName="loginPassword" class="form-control"
+               mdbInput>
+        <label for="user-form-login-pass">PASSWORD</label>
+        <mdb-error
+          *ngIf="loginPassword.invalid && (loginPassword.dirty || loginPassword.touched)">
+          REQUIRED
+        </mdb-error>
+      </div>
+
+
+      <a class="text-primary mt-1" (click)="changeType(2)">Forgot Password?</a>
+
+      <button type="submit" [disabled]="!loginForm.valid || loading" class="mt-5">
+        <span *ngIf="loading" class="spinner-border mt-1" role="status"></span>
+        <span *ngIf="!loading">LOGIN</span>
+      </button>
+    </form>
+
+
+    <!-- Register form -->
+    <form *ngIf="type == 1" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="md-form mb-3">
+        <input type="text" id="user-form-register-name" formControlName="regName" class="form-control"
+               mdbInput>
+        <label for="user-form-register-name">NAME</label>
+        <mdb-error
+          *ngIf="regName.invalid && (regName.dirty || regName.touched)">
+          NAME IS REQUIRED
+        </mdb-error>
+      </div>
+
+      <div class="md-form mb-3">
+        <input type="email" id="user-form-register-email" formControlName="regEmail" class="form-control"
+               mdbInput>
+        <label for="user-form-register-email">EMAIL</label>
+        <mdb-error
+          *ngIf="regEmail.invalid && (regEmail.dirty || regEmail.touched)">
+          INVALID EMAIL
+        </mdb-error>
+      </div>
+
+      <div class="md-form mb-3">
+        <input type="tel" maxlength="10" id="user-form-register-phone" formControlName="regPhone" class="form-control"
+               mdbInput>
+        <label for="user-form-register-phone">PHONE</label>
+        <mdb-error
+          *ngIf="regPhone.invalid && (regPhone.dirty || regPhone.touched)">
+          INVALID PHONE NUMBER
+        </mdb-error>
+      </div>
+
+      <div class="md-form mb-3">
+        <input type="password" id="user-form-register-pass" formControlName="regPassword" class="form-control"
+               mdbInput>
+        <label for="user-form-register-pass">PASSWORD</label>
+        <mdb-error
+          *ngIf="regPassword.invalid && (regPassword.dirty || regPassword.touched)">
+          REQUIRED
+        </mdb-error>
+      </div>
+      <button type="submit" [disabled]="!registerForm.valid || loading" class="mt-5">
+        <span *ngIf="loading" class="spinner-border mt-1" role="status"></span>
+        <span *ngIf="!loading">REGISTER</span>
+      </button>
+    </form>
+
+
+    <!-- Forgot password form -->
+    <form *ngIf="type == 2" [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+      <div class="md-form mb-3">
+        <input type="email" id="user-form-password-email" formControlName="passEmail" class="form-control"
+               mdbInput>
+        <label for="user-form-password-email">EMAIL</label>
+        <mdb-error
+          *ngIf="passEmail.invalid && (passEmail.dirty || passEmail.touched)">
+          INVALID EMAIL
+        </mdb-error>
+      </div>
+
+      <div class="green-text mt-1 text-center">A password reset email will be sent to this address</div>
+
+      <button type="submit" [disabled]="!passwordForm.valid || loading" class="mt-5">
+        <span *ngIf="loading" class="spinner-border mt-1" role="status"></span>
+        <span *ngIf="!loading">RESET PASSWORD</span>
+      </button>
+    </form>
+
+    <p class="text-center red-text mt-5" *ngIf="message">{{message}}</p>
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+img {
+  width: 80%;
+}
+
+ul {
+  li.icon {
+    width: 3.5rem;
+    text-align: center;
+
+    img {
+      // height: 2.9rem;
+      position: relative;
+      bottom: 0.9rem;
+    }
+  }
+}
+
+.quick-fact {
+  text-align: center;
+  margin: 10px 0;
+  img {
+    height: 2.9rem;
+    width: auto;
+    margin-bottom: 5px;
+  }
+}

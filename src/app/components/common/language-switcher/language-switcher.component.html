@@ -1,0 +1,8 @@
+<div class="float-left semibold-text">
+  <div class="top-tab tab" [class.active]='!authService.isHindi' (click)='switchHindi(false)'>
+    <h2>A</h2>
+  </div>
+  <div class="bottom-tab tab" [class.active]='authService.isHindi' (click)='switchHindi(true)'>
+    <h2>अ</h2>
+  </div>
+</div>

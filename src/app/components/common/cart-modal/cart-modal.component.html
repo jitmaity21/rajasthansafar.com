@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <button type="button" class="close" (click)="modalRef.hide()">
+    <span>×</span>
+  </button>
+  <div class="w-100 d-flex flex-column justify-content-center">
+    <img src="assets/images/common/logo_placeholder.png" alt="Logo" class="mx-auto mt-2 p-4">
+    <p class="text-center mt-4 mb-0">{{isCart ? 'ITEMS IN CART' : 'ITEMS IN LIKED LIST'}}</p>
+  </div>
+</div>
+
+<div class="modal-body pt-0 scrollable">
+  <div *ngFor="let product of list; let i = index;"
+       class="px-3 pt-3 mt-4 d-flex flex-column product-holder">
+    <h2 class="m-0" (click)="onProductClick(product.id)">{{product.name}}</h2>
+    <p class="m-0 text-muted">{{product.price}}</p>
+
+    <div class="mx-auto mt-3 cart-icons">
+      <button type="button" (click)="removeProduct(product, i)">
+        <i class="fa-times fas"></i>
+      </button>
+      <button *ngIf="!isCart" type="button" (click)="addToCart(product, i)">
+        <i class="fa-shopping-cart fas"></i>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="!isFetching && !list.length" class="alert text-center alert-danger" role="alert">
+    {{isCart ? 'Cart' : 'Liked list'}} is empty
+  </div>
+
+</div>
+
+<div *ngIf="isCart" class="modal-footer semibold-text">
+  <button (click)="enquiry()" class="enquiry">ENQUIRE</button>
+</div>

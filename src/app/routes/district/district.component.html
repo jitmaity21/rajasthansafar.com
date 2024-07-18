@@ -1,0 +1,21 @@
+<app-banner [banner]='banner'></app-banner>
+<app-styled-intro [content]='styledIntroContent'></app-styled-intro>
+<app-district-quick-facts [district]='quickFacts'></app-district-quick-facts>
+<div class="bg-grey py-4" *ngIf='arts && arts.length'>
+  <br>
+  <h2 class="red-text semibold-text" style="width: fit-content; display: block; margin: auto;">ARTS & CRAFTS</h2>
+  <app-cards-slick-carousel [slides]='arts'></app-cards-slick-carousel>
+  <br>
+</div>
+<!-- <app-district-art-craft-gallery [arts]='arts'></app-district-art-craft-gallery> -->
+<app-card-overlay-carousel *ngIf='villages && villages.length' [slides]='villages'></app-card-overlay-carousel>
+<!-- <app-color-overlay-carousel *ngIf='villages && villages.length' [slides]='villages'></app-color-overlay-carousel> -->
+<div class="bg-grey" *ngIf='attractions && attractions.length'>
+  <br><br>
+  <div class="container">
+    <h2 class="semibold-text red-text" style="width: fit-content; display: block; margin: auto;">NEARBY ATTRACTIONS</h2>
+  </div>
+  <app-art-attraction-slick-carousel [slides]='attractions'></app-art-attraction-slick-carousel>
+</div>
+<app-events-gallery *ngIf='events && events.length' [events]='events'></app-events-gallery>
+<br>

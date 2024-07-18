@@ -1,0 +1,44 @@
+@import '../../../../styles.scss';
+
+h1 {
+
+  @media screen and (min-width: 556px) {
+    font-size: 45px;
+  }
+}
+
+.container {
+  max-width: 945px;
+}
+
+.banner-container {
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+
+  .view {
+    height: 100%;
+    width: 100%;
+
+    img {
+      @media screen and (min-width: 576px) {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+      }
+
+      @media screen and (max-width: 576px) {
+        height: 100% !important;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+      }
+    }
+  }
+
+  .white-grain {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}

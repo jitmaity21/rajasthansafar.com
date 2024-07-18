@@ -1,0 +1,68 @@
+@import '../../../../styles.scss';
+
+.image {
+  object-fit: cover;
+  height: 480px;
+}
+
+.card {
+  border: 2px solid $color-red;
+  height: 520px;
+
+  .scroll {
+    max-height: 440px;
+    overflow-y: auto;
+  }
+}
+
+::ng-deep .collaboartions {
+  .carousel .carousel-control-next-icon, .carousel .carousel-control-prev-icon {
+      background-color: $color-red;
+      height: 3.25rem;
+      width: 3.25rem;
+      border-radius: 1.62rem;
+  }
+  @media screen and (min-width: 768px) {
+    .carousel .carousel-control-next {
+      overflow: visible;
+      opacity: 1;
+      .carousel-control-next-icon {
+        position: relative;
+        left: 50%;
+      }
+    }
+    .carousel .carousel-control-prev {
+      overflow: visible;
+      opacity: 1;
+      .carousel-control-prev-icon {
+        position: relative;
+        right: 50%;
+      }
+    }
+  }
+
+}
+
+.guest-image {
+  height: 150px;
+  width: 150px;
+  border-radius: 75px;
+  margin: auto;
+  background-size: cover;
+  background-position: center;
+}
+
+::ng-deep .comments {
+  .carousel .carousel-control-next-icon, .carousel .carousel-control-prev-icon {
+      background-color: $color-red;
+      height: 3.25rem;
+      width: 3.25rem;
+      border-radius: 1.62rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    height: 1024px;
+  }
+}

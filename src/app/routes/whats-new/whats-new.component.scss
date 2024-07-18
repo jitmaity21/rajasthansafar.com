@@ -1,0 +1,83 @@
+@import '../../../styles.scss';
+
+.whats-new {
+  max-width: 700px;
+}
+
+.image {
+  background-size: cover;
+  background-position: center;
+  height: 480px;
+}
+
+.card {
+  border: 2px solid $color-red;
+}
+
+::ng-deep .collaboartions, ::ng-deep .spotlight, ::ng-deep .products {
+  .carousel .carousel-control-next-icon, .carousel .carousel-control-prev-icon {
+    background-color: $color-red;
+    height: 3.25rem;
+    width: 3.25rem;
+    border-radius: 1.62rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .carousel .carousel-control-next {
+      overflow: visible;
+      opacity: 1;
+
+      .carousel-control-next-icon {
+        position: relative;
+        left: 50%;
+      }
+    }
+    .carousel .carousel-control-prev {
+      overflow: visible;
+      opacity: 1;
+
+      .carousel-control-prev-icon {
+        position: relative;
+        right: 50%;
+      }
+    }
+  }
+}
+
+.products {
+  cursor: pointer;
+
+  img {
+    object-fit: cover;
+  }
+
+  ::ng-deep .slick-prev:before,
+  ::ng-deep .slick-next:before {
+    color: $color-red !important;
+    font-size: 30px;
+  }
+}
+
+.prod-image {
+  object-fit: cover;
+}
+
+.modal-header, .modal-footer {
+  border: 0;
+}
+
+.spotlight {
+  background-color: $color-yellow;
+
+  img {
+    object-fit: cover;
+  }
+
+  ::ng-deep .carousel-control-next {
+    margin-right: -50px;
+  }
+
+  ::ng-deep .carousel-control-prev {
+    margin-left: -50px;
+  }
+}

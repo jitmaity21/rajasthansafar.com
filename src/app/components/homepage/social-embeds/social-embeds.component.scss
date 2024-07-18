@@ -1,0 +1,70 @@
+@import '../../../../styles.scss';
+
+.social-icon {
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  color: white;
+  background-color: $color-blue;
+  text-align: center;
+  display: block;
+  margin: auto;
+
+  i {
+    font-size: 26px;
+    position: relative;
+    top: 7px;
+  }
+}
+
+.social-icon:hover {
+  background-color: $color-red;
+}
+
+.safar-tunes-holder {
+  margin-top: 88px;
+  background-color: $color-red;
+  border-radius: 0.25rem;
+  overflow: hidden;
+
+  @media only screen and (min-width: 992px) {
+    height: 500px;
+  }
+
+  .img-portrait {
+    object-fit: contain;
+    height: 100%;
+  }
+
+  .img-land {
+    object-fit: contain;
+    width: 100%;
+  }
+
+  .contents {
+    color: white;
+    overflow-y: auto;
+
+    button {
+      background-color: $color-yellow;
+      padding: 0.5rem;
+      text-align: center;
+      text-transform: initial;
+      width: 7.5rem;
+
+      &:first-child {
+        margin-right: 0.5rem;
+      }
+
+      &:last-child {
+        margin-left: 0.5rem;
+      }
+    }
+
+    a {
+      color: black;
+      text-transform: initial;
+    }
+  }
+}

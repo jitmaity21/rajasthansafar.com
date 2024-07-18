@@ -1,0 +1,38 @@
+@import '../../../../styles.scss';
+
+.float-left {
+  position: fixed;
+  top: calc(50% - 38px);
+  width: fit-content;
+  z-index: 2;
+  
+  .top-tab {
+    border-top: 1px solid $color-red;
+    border-top-right-radius: 8px;
+    border-bottom: 1px solid $color-red;
+  }
+
+  .bottom-tab {
+    border-bottom-right-radius: 8px;
+    border-bottom: 1px solid $color-red;
+  }
+
+  .tab {
+    border-right: solid $color-red 1px;
+    padding: 3px 7px;
+    background-color: white;
+    color: $color-red;
+    cursor: pointer;
+  }
+
+  .active {
+    background-color: $color-red;
+    color: white;
+  }
+
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+}
+

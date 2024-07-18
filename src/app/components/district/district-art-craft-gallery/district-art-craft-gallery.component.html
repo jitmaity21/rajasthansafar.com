@@ -1,0 +1,17 @@
+<div class="container-fluid flower-bg">
+  <div class="container text-center">
+    <br><br>
+    <h2 class="semibold-text">ART & CRAFT</h2>
+    <br>
+    <div class="row">
+      <div class="col-md-3" *ngFor='let art of arts'>
+        <div class="image-container" (click)='navigateTo(art.id)'>
+          <img src="{{art.image}}" alt="">
+        </div>
+        <br>
+        <h4 class="semibold-text">{{art.name}}</h4>
+      </div>
+    </div>
+    <br><br>
+  </div>
+</div>

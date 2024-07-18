@@ -1,0 +1,14 @@
+@import '../../../../styles.scss';
+
+.image-container {
+  height: 550px;
+  background-size: cover;
+  background-position: center;
+  padding-top: 100px;
+}
+
+.card {
+  margin-right: 60px;
+  max-width: 400px;
+  margin-left: auto;
+}

@@ -1,0 +1,22 @@
+.flower-bg {
+  background-image: url(../../../../assets/components/district/pattern_bg.png);
+  color: white;
+}
+
+.image-container {
+  height: 0;
+  width: 85%;
+  padding-bottom: 85%;
+  border-radius: 50%;
+  border: solid 6px white;
+  overflow: hidden;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    position: relative;
+    bottom: 25%;
+  }
+}

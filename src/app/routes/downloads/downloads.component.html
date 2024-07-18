@@ -1,0 +1,43 @@
+<div class="container">
+  <br>
+  <div class="text-center">
+    <h2 class="semibold-text red-text my-4">DOWNLOADS</h2>
+    <br>
+    <ul class="list-inline">
+      <span *ngFor='let category of categories; let i=index'>
+        <li class="list-inline-item">
+          <h4 [class.active-category]='category === selectedCategory' (click)='selectedCategory = category'>
+            {{category.name}}</h4>
+        </li>
+        <li class="list-inline-item mx-2" *ngIf='!(i === (categories.length-1))'>
+          <h2>|</h2>
+        </li>
+      </span>
+    </ul>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-7 d-none d-md-block" *ngIf='selectedDownload'>
+      <div class="cover-container card" [style.background-image]="'url(' + selectedDownload.cover + ')'">
+        <a href="{{selectedDownload.file}}" target="_blank">
+          <img class="all-center" style="height: 150px; cursor: pointer;"
+            src="../../../assets/components/downloads/free-png-download-site-3.png" alt="">
+        </a>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <br>
+      <ul class="list-inline" *ngIf='selectedCategory'>
+        <li *ngFor='let download of selectedCategory.downloads'>
+          <h4 class="active-download" (click)='selectedDownload = download'> <i class="fas"
+              [class.fa-caret-right]='download!==selectedDownload'
+              [class.fa-caret-down]='download===selectedDownload'></i> {{download.name}}</h4>
+          <p *ngIf='download === selectedDownload'>{{download.brief}}</p>
+          <button class="d-md-none" *ngIf='download === selectedDownload' type="button" mdbBtn color="danger"
+            mdbWavesEffect>Download</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <br><br>
+</div>

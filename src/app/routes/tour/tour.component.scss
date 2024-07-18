@@ -1,0 +1,60 @@
+@import "src/styles";
+
+::ng-deep .slick-prev::before,
+::ng-deep .slick-next::before {
+  color: $color-red !important;
+  font-size: 30px;
+}
+
+.iten-holder {
+  border: 1px solid $color-grey;
+  border-radius: 5px;
+}
+
+.gallery {
+  img {
+    padding: 2px;
+    object-fit: cover;
+    max-height: 600px;
+  }
+
+  .center img {
+    height: 300px;
+  }
+}
+
+::ng-deep input:focus, ::ng-deep textarea:focus {
+  border: 1px solid $color-red !important;
+  box-shadow: 0 0 1px 2px rgba($color-red, 50%) !important;
+}
+
+input, textarea {
+  font-size: 1.15rem;
+}
+
+.banner-img {
+  position: relative;
+
+  mdb-icon {
+    cursor: pointer;
+    position: absolute;
+    z-index: 50;
+    top: 50%;
+    color: $color-red;
+    background-color: white;
+    border: 4px solid $color-red;
+    border-radius: 50%;
+    padding: 10px 14.5px;
+    font-size: 1.5rem;
+  }
+
+  .left {
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  .right {
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+}

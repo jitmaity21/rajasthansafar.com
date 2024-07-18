@@ -1,0 +1,24 @@
+<div class="container-fluid text-center">
+  <br><br>
+  <h2 class="white-text semibold-text">EXPLORE RAJASTHAN'S ART & CRAFT</h2>
+  <br>
+  <div class="container">
+    <div class="row" *ngIf='arts'>
+      <div class="col-md-3 col-sm-4 col-xs-6" *ngFor='let art of arts'>
+        <div class="flip-card m-4" (click)='_authService.navigateToPage(art.link)'>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="image-container" [style.background-image]="'url('+art.icon+')'"></div>
+              <h4 class="semibold-text red-text">{{art.name.toUpperCase()}}</h4>
+            </div>
+            <div class="flip-card-back">
+              <div class="image-container" [style.background-image]="'url('+art.flipImage+')'"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+  <br>
+</div>

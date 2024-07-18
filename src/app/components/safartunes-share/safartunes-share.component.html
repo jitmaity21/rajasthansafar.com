@@ -1,0 +1,14 @@
+<div *ngIf="mp3Url" class="container text-center">
+  <div *ngIf="songData" class="text-center my-5">
+    <img src="{{songData.image}}"/>
+    <h2 class="mt-5">{{songData.name}}</h2>
+    <p *ngIf="songData.intro">{{songData.intro}}</p>
+    <p>{{songData.artist.join(", ")}}</p>
+    <p>{{songData.album}}</p>
+    <p>Genre: {{songData.genre}}</p>
+    <p>Themes: {{songData.themes.join(", ")}}</p>
+  </div>
+  <audio controls autoplay controlsList="nodownload">
+    <source src="{{mp3Url}}">
+  </audio>
+</div>

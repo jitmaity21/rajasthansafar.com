@@ -1,0 +1,18 @@
+<app-banner [banner]='banner'></app-banner>
+<app-homepage-upper-section></app-homepage-upper-section>
+<div id="destinations">
+  <app-homepage-districts-map></app-homepage-districts-map>
+</div>
+<div id="arts&crafts">
+  <app-homepage-art-craft-cards></app-homepage-art-craft-cards>
+</div>
+<!-- <app-color-overlay-carousel *ngIf='featuredVillages && featuredVillages.length' [slides]='featuredVillages'>
+</app-color-overlay-carousel> -->
+<app-card-overlay-carousel *ngIf='featuredVillages && featuredVillages.length' [slides]='featuredVillages'>
+</app-card-overlay-carousel>
+<div class="bg-grey" *ngIf='events && events.length'>
+  <app-events-gallery [events]='events'></app-events-gallery>
+</div>
+<br>
+<app-social-embeds></app-social-embeds>
+<br>

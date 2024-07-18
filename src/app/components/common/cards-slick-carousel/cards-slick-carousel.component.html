@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="container">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+        <!-- {{slide | json}} -->
+        <div class="card m-4 p-4" style="height: 42rem;" (click)='authService.navigateToPage(slide.link)'>
+          <div class="img" [ngStyle]="{ 'background-image': 'url(' + slide.image + ')'}"></div>
+          <h2 *ngIf='!authService.isHindi' class="semibold-text red-text mt-2">{{slide.title}}</h2>
+          <h2 *ngIf='authService.isHindi' class="semibold-text red-text mt-2">{{slide.titleHindi}}</h2>
+          <h4 *ngIf='!authService.isHindi' class="semibold-text">{{slide.subTitle}}</h4>
+          <h4 *ngIf='authService.isHindi' class="semibold-text">{{slide.subTitleHindi}}</h4>
+          <p *ngIf='!authService.isHindi' class="regular-text">{{slide.description}}</p>
+          <p *ngIf='authService.isHindi' class="regular-text">{{slide.descriptionHindi}}</p>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</div>

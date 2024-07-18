@@ -1,0 +1,27 @@
+@import "src/styles";
+
+.holder {
+  border: 1px solid #0004;
+  border-radius: 10px;
+  box-shadow: 1px 1px 6px #0001;
+  cursor: pointer;
+
+  .header {
+    height: 5rem;
+    overflow-y: hidden;
+
+    h2 {
+      max-height: 3rem;
+      overflow-y: hidden;
+    }
+
+    p {
+      color: #0008;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.price-text {
+  color: $color-red;
+}

@@ -1,0 +1,7 @@
+<div class="container text-center" *ngIf='content'>
+  <h1 class="dandelon-text red-text">{{ authService.isHindi ? content.titleHindi : content.title }}</h1>
+  <h2 class="semibold-text white-text subheading">{{ authService.isHindi ? content.subTitleHindi : content.subTitle }}</h2>
+  <br>
+  <div class="regular-text content" [innerHTML]="authService.isHindi ? content.contentHindi : content.content"></div>
+  <br><br><br><br>
+</div>

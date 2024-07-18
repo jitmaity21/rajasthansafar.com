@@ -1,0 +1,78 @@
+<div class="container text-center">
+  <img src="../../../../assets/components/homepage/musician_icon.png" alt="">
+  <div class="m-4">
+    <h2 class="red-text semibold-text" *ngIf='!authService.isHindi'>CELEBRATE LIVING HERITAGE OF RAJASTHAN</h2>
+    <h2 class="red-text semibold-text" *ngIf='authService.isHindi'>राजस्थान की सांस्कृतिक धरोहर का जश्न</h2>
+    <p class="regular-text" *ngIf='!authService.isHindi'>Rajasthan is a land of unparallelled majestic beauty of royal
+      heritage and desert
+      landscapes. Along with that, we bring to you unique cultural experiences of the colourful and breathtaking
+      repertoire of soulful musical traditions in village settings, exotic handicrafts and their makers, and festivals.
+    </p>
+    <p class="regular-text" *ngIf='authService.isHindi'>राजस्थान शाही विरासत और रेगिस्तानी परिदृश्यों की अद्वितीय राजसी
+      सुंदरता की धरती है। इसके साथ ही हम आपके लिए राजस्थान के
+      गाँवों के अनूठे हस्तशिल्प, हस्तशिल्पकार व त्योहार तथा रंगीन और विस्मयकारी आत्मीय संगीत के खजाने का अनूठा
+      सांस्कृतिक अनुभव पेश करते हैं।
+    </p>
+    <!-- <button type="button" mdbBtn color="danger" mdbWavesEffect>LEARN MORE</button> -->
+  </div>
+</div>
+
+<br><br><br>
+
+<div class="container-fluid yellow-bg">
+  <div class="row">
+    <div class="col-md-6 p-0">
+      <div class="embed-responsive embed-responsive-4by3">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/PndOadAPYMM"></iframe>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="container all-center d-none d-md-block">
+        <h2 class="mt-4 semibold-text" *ngIf='!authService.isHindi'>CULTURAL TOURISM</h2>
+        <h2 class="mt-4 semibold-text" *ngIf='authService.isHindi'>सांस्कृतिक पर्यटन</h2>
+        <p class="regular-text" *ngIf='!authService.isHindi'>Rajasthan popularly called the Land of Royals has a rich
+          cultural heritage of not only
+          bewitching palaces, forts, memorials, bawlis, but also a kaleidoscope of folk songs, dance,
+          painting and crafts. This website offers tourism experiences and itineraries of cultural hubs
+          across the districts of Jodhpur, Jaisalmer, Barmer and Bikaner. Tourists are welcome to enjoy
+          an enriching experience of desert life, folk songs and dance, and see the artists in action
+          creating an incredible variety of artwork. The Government of Rajasthan is working
+          with UNESCO to strengthen cultural tourism in Western Rajasthan.</p>
+        <p class="regular-text" *ngIf='authService.isHindi'>राजाओं की भूमि कहलाने वाला राजस्थान केवल मनमोहक महलों,
+          किलों, स्मारकों और बावड़ियों ही नहीं, बल्कि लोक गीतों, नृत्य, चित्रकला और शिल्प की बहुरूपदर्शी, समृद्ध
+          सांस्कृतिक विरासत है। यह वेबसाइट जोधपुर, जैसलमेर, बाड़मेर और बीकानेर के जिलों में सांस्कृतिक केंद्रों के
+          पर्यटन अनुभवों और यात्रा विवरण की पेशकश करती है। रेगिस्तानी जीवन, लोक गीत और नृत्य तथा कलाकारों द्वारा रचित
+          अविश्वसनीय किस्म की कलाकृति का आनंद लेने के लिए पर्यटकों का स्वागत किया जाता है। राजस्थान में सांस्कृतिक
+          पर्यटन को मजबूत बनाने के लिए राजस्थान सरकार यूनेस्को के साथ काम कर रही है।
+        </p>
+        <br>
+        <button type="button" mdbBtn color="danger" mdbWavesEffect (click)='authService.navigateToPage("tours")'>EXPLORE
+          OUR OFFERINGS</button>
+        <br><br>
+      </div>
+    </div>
+  </div>
+  <div class="row d-block d-md-none">
+    <div class="container">
+      <h2 class="mt-4 semibold-text" *ngIf='!authService.isHindi'>CULTURAL TOURISM</h2>
+      <h2 class="mt-4 semibold-text" *ngIf='authService.isHindi'>सांस्कृतिक पर्यटन</h2>
+      <p class="regular-text" *ngIf='!authService.isHindi'>Rajasthan popularly called the Land of Royals has a rich
+        cultural heritage of not only
+        bewitching palaces, forts, memorials, bawlis, but also a kaleidoscope of folk songs, dance,
+        painting and crafts. This website offers tourism experiences and itineraries of cultural hubs
+        across the districts of Jodhpur, Jaisalmer, Barmer and Bikaner. Tourists are welcome to enjoy
+        an enriching experience of desert life, folk songs and dance, and see the artists in action
+        creating an incredible variety of artwork. The Government of Rajasthan is working
+        with UNESCO to strengthen cultural tourism in Western Rajasthan.</p>
+      <p class="regular-text" *ngIf='authService.isHindi'>राजाओं की भूमि कहलाने वाला राजस्थान केवल मनमोहक महलों,
+        किलों, स्मारकों और बावड़ियों ही नहीं, बल्कि लोक गीतों, नृत्य, चित्रकला और शिल्प की बहुरूपदर्शी, समृद्ध
+        सांस्कृतिक विरासत है। यह वेबसाइट जोधपुर, जैसलमेर, बाड़मेर और बीकानेर के जिलों में सांस्कृतिक केंद्रों के
+        पर्यटन अनुभवों और यात्रा विवरण की पेशकश करती है। रेगिस्तानी जीवन, लोक गीत और नृत्य तथा कलाकारों द्वारा रचित
+        अविश्वसनीय किस्म की कलाकृति का आनंद लेने के लिए पर्यटकों का स्वागत किया जाता है। राजस्थान में सांस्कृतिक
+        पर्यटन को मजबूत बनाने के लिए राजस्थान सरकार यूनेस्को के साथ काम कर रही है।
+      </p>
+      <!-- <button type="button" mdbBtn color="danger" mdbWavesEffect>EXPLORE OUR OFFERINGS</button> -->
+      <br><br>
+    </div>
+  </div>
+</div>

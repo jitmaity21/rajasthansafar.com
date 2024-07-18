@@ -1,0 +1,22 @@
+<div class="container">
+  <h2 class="semibold-text red-text">FEATURES</h2>
+  <br>
+  <mdb-carousel [animation]="'slide'"  class="art-feature">
+    <mdb-carousel-item *ngFor='let feature of features'>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mx-4">
+            <img class="d-block w-100" src="{{feature.image}}" alt="First slide">
+          </div>
+          <br><br><br>
+        </div>
+        <div class="col-md-6">
+          <h2 class="semibold-text name"> {{ authService.isHindi ? feature.nameHindi : feature.name }}</h2>
+          <div class="regular-text">{{ authService.isHindi ? feature.contentHindi : feature.content }}</div>
+        </div>
+      </div>
+
+    </mdb-carousel-item>
+  </mdb-carousel>
+  <br>
+</div>

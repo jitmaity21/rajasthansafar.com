@@ -1,0 +1,9 @@
+<div class="container">
+  <div *ngIf="userService.toastMessage" class="toast-msg">
+    <div class="container">
+      <div class="alert text-center alert-danger" role="alert">
+        {{userService.toastMessage}}
+      </div>
+    </div>
+  </div>
+</div>

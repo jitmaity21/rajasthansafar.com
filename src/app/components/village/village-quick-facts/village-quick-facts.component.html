@@ -1,0 +1,85 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 bg-white">
+      <img class="all-center d-none d-md-block" style="max-height: 90%; max-width: 100%;" src="{{village.mapImage}}"
+        alt="">
+      <img class="p-4 d-md-none" style="max-width: 100%;" src="{{village.mapImage}}" alt="">
+    </div>
+    <div class="col-md-6 bg-dark-grey">
+      <br><br>
+      <h2 class="semibold-text">{{village.name.toUpperCase()}}: QUICK FACTS</h2>
+      <br><br>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="semibold-text">How to Reach &nbsp;&nbsp;<span><img class="car"
+                src="../../../../assets/components/village/car_icon.png" alt=""></span></p>
+          <p class="regular-text">{{village.howToReach}}</p>
+          <br>
+          <div *ngIf='village.distances.length'>
+            <p class="regular-text">Distance from</p>
+            <p *ngFor='let distance of village.distances'>
+              <span class="semibold-text">{{distance.location}}</span> > <span
+                class="regular-text">{{distance.distance}}
+                kms</span>
+            </p>
+          </div>
+          <br>
+          <p class="regular-text">Where to stay</p>
+          <p class="semibold-text">{{village.stay}}</p>
+          <br>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-inline">
+            <li class="list-inline-item icon"><img src="../../../../assets/components/village/bus_icon.png" alt=""></li>
+            <li class="list-inline-item">
+              <p class="regular-text">Nearest Busstop</p>
+              <p class="semibold-text">{{village.busStop}} <span *ngIf='village.busStopDistance'>(
+                  {{village.busStopDistance}} kms )</span></p>
+            </li>
+          </ul>
+          <br>
+          <ul class="list-inline">
+            <li class="list-inline-item icon"><img src="../../../../assets/components/village/rail_icon.png" alt="">
+            </li>
+            <li class="list-inline-item">
+              <p class="regular-text">Nearest Railway Station</p>
+              <p class="semibold-text">{{village.railwayStation}} <span *ngIf='village.railwayStationDistance'>(
+                  {{village.railwayStationDistance}} kms )</span>
+              </p>
+            </li>
+          </ul>
+          <br>
+          <ul class="list-inline">
+            <li class="list-inline-item icon"><img src="../../../../assets/components/village/air_icon.png" alt=""></li>
+            <li class="list-inline-item">
+              <p class="regular-text">Nearest Airport</p>
+              <p class="semibold-text">{{village.airport}} <span *ngIf='village.airportDistance'>(
+                  {{village.airportDistance}} kms )</span></p>
+            </li>
+          </ul>
+          <br>
+          <!-- <ul class="list-inline">
+            <li class="list-inline-item icon"><img src="../../../../assets/components/village/stay_icon.png" alt="">
+            </li>
+            <li class="list-inline-item">
+              <p class="regular-text">Where to stay</p>
+              <p class="semibold-text">{{village.stay}}</p>
+            </li>
+          </ul>
+          <br> -->
+          <ul class="list-inline">
+            <li class="list-inline-item icon"><img src="../../../../assets/components/village/contact_icon.png" alt="">
+            </li>
+            <li class="list-inline-item">
+              <p class="regular-text">Village contact</p>
+              <p class="semibold-text">{{village.contact}}</p>
+            </li>
+          </ul>
+          <br>
+
+        </div>
+      </div>
+      <br><br>
+    </div>
+  </div>
+</div>

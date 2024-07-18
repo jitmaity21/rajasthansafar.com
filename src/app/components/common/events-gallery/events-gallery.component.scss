@@ -1,0 +1,31 @@
+@import '../../../../styles.scss';
+
+
+.slick-slider {
+  width: 100%;
+  margin: auto;
+}
+
+.slick-disabled {
+  img {
+    opacity: 0.2;
+  }
+}
+
+.card {
+  max-width: 300px;
+  margin: 20px auto;
+  cursor: pointer;
+
+  @media screen and (max-width: 576px) {
+    max-width: 80vw;
+  }
+
+  .card-image {
+    height: 0;
+    width: 100%;
+    padding-bottom: 100%;
+    background-size: cover;
+    background-position: top;
+  }
+}

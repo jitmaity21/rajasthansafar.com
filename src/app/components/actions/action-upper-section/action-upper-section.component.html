@@ -1,0 +1,21 @@
+<div class="container text-center">
+  <div class="m-4">
+    <h2 class="red-text semibold-text" *ngIf='intro && !authService.isHindi'>{{intro.title}}</h2>
+    <h2 class="red-text semibold-text" *ngIf='intro && authService.isHindi'>{{intro.titleHindi}}</h2>
+    <div class="regular-text" *ngIf='intro' [innerHTML]="authService.isHindi ? intro.contentHindi : intro.content"></div>
+  </div>
+  <br>
+</div>
+<div class="container-fluid bg-red">
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-md-3 text-center stat my-4" *ngFor='let stat of stats'>
+        <img src="{{stat.image}}" alt="">
+        <h1 class="regular-text">{{stat.figure}}</h1>
+        <h2 *ngIf='!authService.isHindi' class="regular-text">{{stat.name}}</h2>
+        <h2 *ngIf='authService.isHindi' class="regular-text">{{stat.nameHindi}}</h2>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>

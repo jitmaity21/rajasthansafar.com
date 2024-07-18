@@ -1,0 +1,126 @@
+@import "src/styles";
+
+.details {
+  .price {
+    color: $color-red;
+
+  }
+
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    padding: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+button {
+  background: $color-red;
+  border: none;
+  width: 14rem;
+  padding: 6px 10px;
+  color: white;
+  font: inherit;
+  outline: inherit;
+}
+
+.prod-small-img {
+  display: inline-block;
+
+  img {
+    cursor: pointer;
+    object-fit: cover;
+    width: 64px;
+    height: 64px;
+  }
+
+  .dim {
+    opacity: 0.8;
+    cursor: initial;
+    border: 2px solid $color-red;
+  }
+}
+
+.prod-img {
+  object-fit: cover;
+  border: 1px solid $color-grey;
+  padding: 4px !important;
+  border-radius: 6px;
+}
+
+hr {
+  border-top: 2px solid $color-red;
+}
+
+.quantity {
+  width: 60px;
+  text-align: center;
+  border: 1px solid $color-red;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 2px $color-red;
+  }
+
+  &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+    opacity: 1;
+    background-color: red;
+    color: green;
+  }
+}
+
+.artist {
+  border: 1px solid $color-grey;
+  padding: 8px;
+  border-radius: 6px;
+
+  img {
+    object-fit: cover;
+    border: 2px solid $color-red;
+    border-radius: 6px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+    color: $color-red;
+  }
+}
+
+::ng-deep .slick-prev:before,
+::ng-deep .slick-next:before {
+  color: $color-red !important;
+  font-size: 30px;
+}
+
+.error::before {
+  content: none;
+}
+
+h1 {
+  position: relative;
+  font-size: $text-h1;
+  font-family: 'Monteserrat Regular';
+  color: $color-red;
+  padding-bottom: $padding;
+
+  &::before {
+    position: absolute;
+    top: calc(#{$text-h1} + #{$padding});
+    left: 0;
+    content: "";
+    height: 2px;
+    width: 40px;
+    background-color: $color-red;
+  }
+}

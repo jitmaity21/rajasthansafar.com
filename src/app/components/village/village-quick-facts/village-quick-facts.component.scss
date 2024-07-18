@@ -1,0 +1,18 @@
+@import '../../../../styles.scss';
+
+img.car {
+  height: 2.4rem;
+}
+
+ul {
+  li.icon {
+    width: 3.5rem;
+    text-align: center;
+
+    img {
+      height: 2.9rem;
+      position: relative;
+      bottom: 0.9rem;
+    }
+  }
+}

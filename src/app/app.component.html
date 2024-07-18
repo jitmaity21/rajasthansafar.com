@@ -1,0 +1,10 @@
+<app-navbar-top></app-navbar-top>
+<app-navbar (triggerContact)='footer.showForm()'></app-navbar>
+<router-outlet></router-outlet>
+<app-toast></app-toast>
+<div [class.bg-grey]='isCraft'>
+  <app-footer #footer></app-footer>
+</div>
+
+
+<app-language-switcher></app-language-switcher>

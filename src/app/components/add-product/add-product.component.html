@@ -1,0 +1,189 @@
+<div class="container">
+  <div class="modal-body mt-3 col-11 col-sm-12 forms" style="display: block;margin-left: auto;margin-right: auto;">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <h1>Add New Product</h1>
+      <div class="md-form mb-3">
+        <input type="text" id="product-form-product-name" formControlName="productName" class="form-control"
+               mdbInput>
+        <label for="product-form-product-name">Product Name</label>
+        <mdb-error
+          *ngIf="productName.invalid && (productName.dirty || productName.touched)">
+          PRODUCT NAME IS REQUIRED
+        </mdb-error>
+      </div>
+
+      <div class="my-5" id="product-form-description">
+        <label class="label-text-red" for="product-form-description">Description</label>
+        <div class="md-form">
+            <textarea type="text" id="product-form-description-english" formControlName="productDescriptionEnglish"
+                      class="md-textarea form-control"
+                      mdbInput></textarea>
+          <label for="product-form-description-english">English</label>
+          <mdb-error
+            *ngIf="productDescriptionEnglish.invalid && (productDescriptionEnglish.dirty || productDescriptionEnglish.touched)">
+            REQUIRED
+          </mdb-error>
+        </div>
+        <div class="md-form">
+            <textarea type="text" id="product-form-description-hindi" formControlName="productDescriptionHindi"
+                      class="md-textarea form-control"
+                      mdbInput></textarea>
+          <label for="product-form-description-hindi">Hindi</label>
+          <mdb-error
+            *ngIf="productDescriptionHindi.invalid && (productDescriptionHindi.dirty || productDescriptionHindi.touched)">
+            REQUIRED
+          </mdb-error>
+        </div>
+      </div>
+
+      <div class="md-form mb-3">
+        <select id='product-form-artist' formControlName="productArtist" class="form-control" mdbInput>
+          <option *ngFor="let artist of artists" [value]="artist.id">{{artist.name}}</option>
+        </select>
+        <label for='product-form-artist'>Artist</label>
+        <mdb-error
+          *ngIf="productArtist.invalid && (productArtist.dirty || productArtist.touched)">
+          REQUIRED
+        </mdb-error>
+      </div>
+
+      <div class="md-form mb-3">
+        <select id='product-form-craft' formControlName="productCraft" class="form-control" mdbInput>
+          <option *ngFor="let craft of crafts" [value]="craft.id">{{craft.name}}</option>
+        </select>
+        <label for='product-form-artist'>Craft</label>
+        <mdb-error
+          *ngIf="productCraft.invalid && (productCraft.dirty || productCraft.touched)">
+          REQUIRED
+        </mdb-error>
+      </div>
+
+      <div class="mb-3 row pt-2">
+        <label class="col-12 label-text">
+          <input class="col-1" type='checkbox' id='product-form-whats-new' formControlName="productWhatsNew"
+                 mdbInput>Featured in what's new</label>
+      </div>
+
+      <div class="mb-3 pt-2 md-input">
+        <label class="label-text-red">Product Categories</label>
+        <div class="pt-2" *ngFor="let category of categories; let i = index;">
+          <label class="col-12 label-text">
+            <input class="col-1" type='checkbox' id="{{'product-form-category'+i}}"
+                   (click)="onCategoriesChange($event,category)" mdbInput>{{category.name}}</label>
+        </div>
+      </div>
+
+      <div class="md-form mb-3">
+        <textarea type="text" id="product-form-short-description" formControlName="productShortDescription"
+                  class="md-textarea form-control"
+                  mdbInput></textarea>
+        <label for="product-form-short-description">Product Short Description</label>
+        <mdb-error
+          *ngIf="productShortDescription.invalid && (productShortDescription.dirty || productShortDescription.touched)">
+          REQUIRED
+        </mdb-error>
+      </div>
+
+      <div class="d-flex flex-wrap justify-content-between p-0 mt-5 mb-4">
+        <div class="col-12 col-lg-5 p-0">
+          <label class="btn " for="imageInput"
+                 style="width: 100%">{{ imageData ? "Change Product Image" : "Set Product Image" }}
+            <input type="file" hidden id="imageInput" accept="image/*, .pdf"
+                   (change)="fileRead($event.target.files, true)" required>
+          </label>
+          <p class="text-center red-text" style="font-size: smaller;">{{ imageData ? imageData.name : "" }}</p>
+        </div>
+
+        <div class="col-12 col-lg-5 p-0">
+          <label class="btn " for="galleryInput"
+                 style="width: 100%">{{ galleryData.length > 0 ? "Change Product Gallery Images" : "Add Product Gallery Images" }}
+            <input type="file" hidden id="galleryInput" accept="image/*, .pdf" multiple="multiple" max=5
+                   (change)="fileRead($event.target.files, false)" required>
+          </label>
+          <div class="row">
+            <p class="red-text pr-1" style="font-size: smaller;"
+               *ngFor="let gallery of galleryData">{{gallery.name}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="md-form mb-3">
+        <div class="row pt-4 ml-0">
+          <div class="col-6 col-md-3 mt-3 pl-0 pr-5">
+            <input type="text" id="product-form-dimen-length" formControlName="dimenLength" class="form-control w-100"
+                   mdbInput>
+            <label for="product-form-dimen-length">Length in cm</label>
+            <mdb-error
+              *ngIf="dimenLength.invalid">
+              MUST BE A NUMBER
+            </mdb-error>
+          </div>
+          <div class="col-6 col-md-3 mt-3 pl-0 pr-5">
+            <input type="text" id="product-form-dimen-height" formControlName="dimenHeight" class="form-control w-100"
+                   mdbInput>
+            <label for="product-form-dimen-height">Height in cm</label>
+            <mdb-error
+              *ngIf="dimenHeight.invalid">
+              MUST BE A NUMBER
+            </mdb-error>
+          </div>
+          <div class="col-6 col-md-3 mt-3 pl-0 pr-5">
+            <input type="text" id="product-form-dimen-width" formControlName="dimenWidth" class="form-control w-100"
+                   mdbInput>
+            <label for="product-form-dimen-width">Width in cm</label>
+            <mdb-error
+              *ngIf="dimenWidth.invalid">
+              MUST BE A NUMBER
+            </mdb-error>
+          </div>
+          <div class="col-6 col-md-3 mt-3 pl-0 pr-5">
+            <input type="text" id="product-form-weight" formControlName="weight" class="form-control w-100"
+                   mdbInput>
+            <label for="product-form-weight">Weight in Kg</label>
+            <mdb-error
+              *ngIf="weight.invalid">
+              MUST BE A NUMBER
+            </mdb-error>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="md-form mb-3 pt-2">
+        <label class="label-text-red" style="left: 0">Price Details</label>
+        <div class="row pt-4 mt-3">
+          <div class="col-12 p-0">
+            <input type="text" id="product-form-regular-price" formControlName="regularPrice" class="form-control w-100"
+                   mdbInput>
+            <label for="product-form-regular-price">Regular Price</label>
+            <mdb-error
+              *ngIf="regularPrice.invalid && (regularPrice.dirty || regularPrice.touched)">
+              PRICE IS REQUIRED
+            </mdb-error>
+          </div>
+          <!--<div class="col-sm-6 p-2">
+              <input type="text" id="product-form-sale-price" formControlName="salePrice" class="form-control"
+                  mdbInput>
+              <label for="product-form-sale-price">Sale Price</label>
+              <mdb-error
+              *ngIf="salePrice.invalid && (salePrice.dirty || salePrice.touched)">
+              PRICE IS REQUIRED
+              </mdb-error>
+          </div>-->
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" [disabled]="!productForm.valid || loading" class="mt-5 col-md-6"
+                style="display: block;margin-left: auto;margin-right: auto;">
+          <span *ngIf="loading" class="spinner-border mt-1" role="status"></span>
+          <span *ngIf="!loading">ADD</span>
+        </button>
+      </div>
+
+    </form>
+
+    <p class="text-center red-text mt-5" *ngIf="message">{{message}}</p>
+
+  </div>
+</div>

@@ -1,0 +1,156 @@
+@import '../../../../styles.scss';
+
+.nav-item {
+  padding-top: 5px;
+}
+
+::ng-deep .navbar {
+  background-color: $color-red;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .10), 0 5px 10px 0 rgba(0, 0, 0, .12) !important;
+
+  .container {
+    max-width: 100%;
+
+  }
+}
+
+::ng-deep .navbar-collapse {
+  justify-content: center;
+  min-height: 3rem;
+}
+
+::ng-deep .sticky-top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.d-lg-none {
+  img {
+    position: relative;
+    left: 23px;
+  }
+}
+
+.image-decor {
+  background-image: url("../../../../assets/components/common/fort_bg.png");
+  height: 49px;
+  background-color: #F0DE66;
+}
+
+.user-holder {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  width: 2rem !important;
+  height: 2rem !important;
+  transform: translateY(-0.2rem);
+  display: inline-block;
+  margin: 0 $padding;
+  cursor: pointer;
+
+  .user-name {
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    line-height: 1;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  .user-sheet {
+    top: 1rem;
+    right: -7rem;
+    left: -8rem;
+    box-shadow: 2px 2px 10px #0005;
+
+    h2 {
+      color: $color-red;
+      margin-bottom: 0;
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+
+    button {
+      border-radius: 8px;
+      background-color: $color-red;
+      margin-top: $padding-large;
+      border: none;
+      padding: 6px 10px;
+      font: inherit;
+      outline: inherit;
+      font-size: 1rem;
+      color: white;
+    }
+  }
+}
+
+mdb-icon {
+  color: #fff;
+}
+
+nav {
+  padding-top: 1rem;
+}
+
+.images {
+  text-align: right;
+  position: relative;
+  top: 0.3rem;
+
+  a {
+    height: 32px;
+    padding: 0;
+    margin: 0 $padding;
+
+    ::ng-deep {
+      overflow: initial;
+    }
+  }
+}
+
+.badge {
+  border: 1px solid #fff;
+  margin-left: 0.5rem;
+  padding: 0 8px;
+  border-radius: 50px;
+  line-height: 1rem;
+
+  .badge-text {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: #fff;
+    top: -1px;
+  }
+}
+
+.navbar-toggler {
+  color: red($color: #000000);
+}
+
+.artist-menu {
+  box-shadow: 2px 2px 10px #0005;
+
+  a {
+    color: $color-red;
+    font-size: 1.1rem;
+    transition: 1s;
+
+    &:hover {
+      color: black;
+      font-weight: 400;
+    }
+  }
+}
+

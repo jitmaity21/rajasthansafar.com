@@ -1,0 +1,17 @@
+@import '../../../../styles.scss';
+
+.card {
+  height: 100%;
+  border-radius: 8px;
+  transition: all 0.5s;
+
+  .img {
+    height: 200px;
+    background-size: cover;
+  }
+}
+
+.card:hover {
+  background-color: $color-yellow;
+  cursor: pointer;
+}

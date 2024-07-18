@@ -1,0 +1,83 @@
+<div *ngIf="product" class="container">
+  <div class="row mb-5">
+    <div class="col-lg-4 col-md-6 col-9 mx-auto mt-5">
+      <div class="embed-responsive embed-responsive-1by1">
+        <img src="{{selectedImage}}" alt="Product Image" class="col p-0 embed-responsive-item prod-img"/>
+      </div>
+      <div class="d-flex justify-content-center flex-wrap">
+        <div *ngFor="let image of product.imageUrls" class="pt-3 pr-3 prod-small-img">
+          <img src="{{image}}" alt="" (click)="selectedImage=image" [class.dim]="image == selectedImage">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-lg-8 col-md-6 mt-5 details regular-text">
+      <h1>{{product.name}}</h1>
+      <p *ngIf="product.code">PRODUCT CODE: {{product.code}}</p>
+      <hr>
+
+      <!--<h4 class="semibold-text mt-5 mb-0 price">{{product.price}}</h4>-->
+      <!--<input type="number" value="1" min="1" class="mt-4 quantity">-->
+
+      <p class="mt-4"><span class="semibold-text">Categories: </span>{{product.categories}}</p>
+      <!--<p *ngIf="product.tags"><span class="semibold-text">Tags: </span>{{product.tags}}</p>-->
+
+      <div *ngIf="product.dimensions">
+          <span *ngIf="product.dimensions.length">
+            <span class="semibold-text mr-2">Length:</span>{{product.dimensions.length}} cm
+          </span>
+        <span *ngIf="product.dimensions.height">
+          <span class="semibold-text mr-2">Height:</span>{{product.dimensions.height}} cm
+        </span>
+        <span *ngIf="product.dimensions.width">
+          <span class="semibold-text mr-2">Width:</span>{{product.dimensions.width}} cm
+        </span>
+      </div>
+      <div *ngIf="product.weight"><span class="semibold-text mr-2">Weight:</span>{{product.weight}} kg</div>
+
+      <div class="d-flex justify-content-around flex-wrap">
+        <button mdbWavesEffect class="waves-light mt-4" (click)="toggleCart()">
+          {{isInCart() ? 'REMOVE FROM CART' : 'ADD TO CART'}}
+        </button>
+        <button mdbWavesEffect class="waves-light mt-4" (click)="toggleWish()">
+          {{isInWish() ? 'REMOVE FROM LIKED' : 'LIKE'}}</button>
+        <button mdbWavesEffect class="waves-light mt-4" (click)="onEnquire()">ENQUIRE</button>
+      </div>
+    </div>
+
+  </div>
+
+  <h1 class="mt-5 mb-3">Product Description</h1>
+  <p [innerHTML]="navService.getLangString(product.description)"></p>
+
+  <div *ngIf="product.artist" class="my-5 col">
+    <div class="row artist">
+      <div class="col-lg-2 col-3 mx-auto my-auto p-0">
+        <div class="embed-responsive embed-responsive-1by1">
+          <img src="{{product.artist.imageUrl}}" alt="" class="embed-responsive-item">
+        </div>
+      </div>
+      <div class="col-lg-10 col-md-9 col-12">
+        <p>Created by:</p>
+        <h4>{{navService.getLangString(product.artist.name)}}</h4>
+        <p>{{navService.getLangString(product.artist.desc)}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="product.related" class="my-5">
+    <h1 class="mt-5 mb-3">Related Items</h1>
+    <ngx-slick-carousel class="mx-4 mt-5 col-sm-11 col-10" [config]="carouselConfig">
+      <div ngxSlickItem *ngFor="let prod of product.related; trackBy: trackBy">
+        <app-product-card [src]="prod.imageUrl" [title]="prod.name" [desc]="prod.price" [id]="prod.id">
+        </app-product-card>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+
+</div>
+
+<div *ngIf="product === null" class="container d-flex flex-column h-100 py-5">
+  <h1 class="my-auto text-center border p-3 error">Failed to fetch product details</h1>
+</div>

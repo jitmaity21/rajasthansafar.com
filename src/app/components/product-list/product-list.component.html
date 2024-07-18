@@ -1,0 +1,16 @@
+<div *ngIf="products === null" class="container d-flex flex-column h-100 py-5">
+  <h1 *ngIf="categoryName">{{categoryName}}</h1>
+  <h1 class="my-auto text-center border p-3 error">No products in this category</h1>
+</div>
+
+<div *ngIf="products" class="container pt-4">
+  <h1 *ngIf="categoryName">{{categoryName}}</h1>
+  <div class="row my-5">
+    <div *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: page}" class="col-lg-4 col-6 p-2">
+      <app-product-card [src]="product.image" [title]="product.name" [desc]="product.price" [id]="product.id">
+      </app-product-card>
+    </div>
+  </div>
+
+  <pagination-controls autoHide="true" (pageChange)="page = $event" class="text-center mb-5"></pagination-controls>
+</div>

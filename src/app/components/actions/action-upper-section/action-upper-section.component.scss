@@ -1,0 +1,31 @@
+@import '../../../../styles.scss';
+
+
+.container {
+  h2 {
+  max-width: 550px;
+  margin: auto;
+  }
+  p {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 30px;
+  }
+}
+
+.stat {
+  img {
+    margin: auto;
+  }
+  h1 {
+    font-size: 5rem;
+  }
+  h2 {
+    width: fit-content;
+    margin: auto;
+  }
+  p {
+    width: fit-content;
+    margin: auto;
+  }
+}

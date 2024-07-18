@@ -1,0 +1,62 @@
+@import '../../../../styles.scss';
+
+p,
+li {
+  margin: 0;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.footer-top {
+  background-color: $color-red;
+  color: white;
+
+  ul {
+    list-style: none;
+  }
+}
+
+a.banglantak-link {
+  font-style: italic;
+  color: $color-red;
+}
+
+
+img.footer-bottom-image {
+  height: 70px;
+}
+
+.rounded-border {
+  height: 32px;
+  width: 32px;
+  border: solid 2px white;
+  border-radius: 16px;
+  text-align: center;
+
+  i {
+    font-size: 18px;
+    position: relative;
+    top: 4px;
+  }
+}
+
+button.btn-danger {
+  background-color: $color-red !important;
+  font-size: 16px;
+}
+
+button.btn-unique {
+  background-color: $color-red !important;
+}
+
+ul {
+  li {
+    cursor: pointer;
+    color: white;
+  }
+  li:hover {
+     color: $color-grey; 
+    }
+}

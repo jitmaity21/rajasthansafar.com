@@ -1,0 +1,32 @@
+<div class="container">
+  <div *ngIf="craftsId > -1" class="mb-5">
+    <h1 class="regular-text">Shop by Crafts</h1>
+    <div class="row mt-5">
+      <div *ngFor="let category of categories[craftsId].children" class="col-md-6 p-1">
+        <div class="crafts" (click)="goToProduct(category.id, category.name)">
+          <img src="{{category.imageUrl}}" alt="">
+          <div class="text">
+            <h2>{{category.name}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let category of categories | keyvalue" class="mt-5">
+    <!-- Ugly, but good enough for our purposes -->
+    <div *ngIf="category.key != craftsId && category.key != uncategorizedId">
+      <h1 class="regular-text">Shop by {{category.value.name}}</h1>
+      <div class="row mt-4 mb-5">
+        <div *ngFor="let sub of category.value.children" class="col-lg-4 col-sm-6 col-6 p-2">
+          <app-image-holder-small [src]="sub.imageUrl" [title]="sub.name"
+                            (itemClick)="goToProduct(sub.id, sub.name)">
+          </app-image-holder-small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODO: Might want to show uncategorized products here, in the future -->
+
+</div>

@@ -1,0 +1,73 @@
+<div class="container pt-4">
+  <h1 class="mb-5">Raise Enquiry</h1>
+
+  <div *ngIf="!loading && !userService.userDisplayName" class="mb-5 error">
+    <h2 *ngIf="!userService.userDisplayName">You need to log in first</h2>
+  </div>
+
+  <div *ngIf="userService.userDisplayName">
+
+    <div class="user-data mb-5">
+      <h2 class="text-center">{{userService.userDisplayName}}</h2>
+      <p class="text-center">{{userService.userEmail}}</p>
+      <p *ngIf="userService.userPhone" class="text-center">{{userService.userPhone}}</p>
+    </div>
+
+    <div *ngIf="!loading && !products.length" class="mb-5 error">
+      <h2>Your cart is empty</h2>
+    </div>
+
+    <div *ngIf="products.length">
+      <h2 class="mb-5">Make an enquiry for the following items:</h2>
+      <div class="row">
+        <div *ngFor="let product of products" class="col-md-4 col-6 p-0 mb-5">
+          <app-image-holder-small [src]="product.imageUrl" [title]="product.name"
+                                  [desc]="product.price"></app-image-holder-small>
+        </div>
+      </div>
+
+      <hr>
+      <div class="my-5 d-flex flex-column">
+        <div *ngIf="!userService.userPhone" class="mb-5 text-center">
+          <label class="mx-auto">
+            Phone Number:
+            <input type="tel" required minlength="10" maxlength="10" [(ngModel)]="phoneNumber" #ph="ngModel"
+                   class="ml-2 px-3">
+          </label>
+
+          <div *ngIf="ph.invalid && (ph.dirty || ph.touched)" class="red-text mt-2">
+
+            <div *ngIf="ph.errors.required" class="text-center">
+              Phone number is required.
+            </div>
+
+            <div *ngIf="ph.errors.minlength || ph.errors.maxlength" class="text-center">
+              Invalid phone number.
+            </div>
+          </div>
+        </div>
+
+        <button class="mx-auto" (click)="onEnquire()" [disabled]="disableButton"
+                [style.opacity]="disableButton ? 0.5 : 1">
+          <span *ngIf="disableButton" class="spinner-border mt-1" role="status"></span>
+          <span *ngIf="!disableButton">ENQUIRE</span>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="orders.length" class="mb-5 orders">
+      <h1 class="mb-3">Your enquiries:</h1>
+      <div class="container-fluid">
+        <div class="row">
+          <div *ngFor="let item of orders" class="col-md-4 col-sm-6 my-1 p-2">
+            <app-enquire-order [currencySymbol]="currency" [id]="item.productId" [name]="item.name"
+                               [price]="item.price" [quantity]="item.quantity" [orderId]="item.orderId"
+                               [orderStatus]="item.status">
+            </app-enquire-order>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

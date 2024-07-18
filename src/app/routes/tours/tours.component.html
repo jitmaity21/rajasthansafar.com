@@ -1,0 +1,35 @@
+<app-banner [banner]='banner'></app-banner>
+
+<!-- Intro here -->
+<div class="container">
+  <div class="text-center m-4">
+    <h2 class="red-text semibold-text py-4">{{ authService.isHindi ? intro.title.hindi : intro.title.english }}</h2>
+    <p class="regular-text">{{ authService.isHindi ? intro.content.hindi : intro.content.english }}</p>
+  </div>
+</div>
+
+<br><br>
+<!-- Tours here -->
+<br><br>
+<div class="container text-center">
+  <h2 class="red-text semibold-text m-4">{{ authService.isHindi ?  'विरासत का अनुभव' : 'EXPERIENCE LIVING HERITAGE'}}
+  </h2>
+</div>
+
+<div class="container">
+  <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+    (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+    <div ngxSlickItem *ngFor="let tour of tours" class="slide">
+      <div class="card text-left p-3 m-2" (click)='authService.navigateToPage("tour/" + tour.id)'>
+        <div class="image-holder" [style.background-image]="'url(' + tour.image + ')'"></div>
+        <div style="overflow-y: auto">
+          <h2 class="red-text semibold-text mt-2">{{ authService.isHindi ? tour.title.hindi : tour.title.english }}</h2>
+          <h4 class="semibold-text">{{ authService.isHindi ? tour.location.hindi : tour.location.english }}</h4>
+          <h4 class="regular-text">{{ authService.isHindi ? tour.intro.hindi : tour.intro.english }}</h4>
+        </div>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+</div>
+
+<app-collaborations></app-collaborations>

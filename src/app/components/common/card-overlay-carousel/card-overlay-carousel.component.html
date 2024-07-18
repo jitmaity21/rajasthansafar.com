@@ -1,0 +1,18 @@
+<mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+  <mdb-carousel-item *ngFor='let slide of slides'>
+    <div class="container-fluid image-container" [ngStyle]="{ 'background-image': 'url(' + slide.image + ')'}">
+      <div class="container">
+        <div class="card bg-yellow p-4">
+          <h2 *ngIf='!authService.isHindi' class="semibold-text red-text">{{slide.name}}</h2>
+          <h2 *ngIf='authService.isHindi' class="semibold-text red-text">{{slide.nameHindi}}</h2>
+          <h4 *ngIf='!authService.isHindi' class="semibold-text">{{slide.subHeading}}</h4>
+          <h4 *ngIf='authService.isHindi' class="semibold-text">{{slide.subHeadingHindi}}</h4>
+          <h4 *ngIf='!authService.isHindi' class="regular-text">{{slide.content}}</h4>
+          <h4 *ngIf='authService.isHindi' class="regular-text">{{slide.contentHindi}}</h4>
+          <button type="button" mdbBtn color="danger" mdbWavesEffect
+            (click)='authService.navigateToPage(slide.link)'>LEARN MORE</button>
+        </div>
+      </div>
+    </div>
+  </mdb-carousel-item>
+</mdb-carousel>
